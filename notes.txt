@@ -17,7 +17,8 @@ LOGIC:
   - current sources locally pulled
   - config file adjusted to point to the pulled directory
 
-1.  
+1. tbd
+2. tbd
 
 ----------------------------------------------------------------------------------------------------
 Tips:
