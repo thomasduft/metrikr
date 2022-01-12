@@ -3,28 +3,10 @@ TODO:
 - [ ] ...
 
 ----------------------------------------------------------------------------------------------------
-METRICS:
-
-- Maintainability index (midx)
-- Class coupling (ccoup)
-- Cyclomatic complexity (ccomp)
-- Depth of inheritance (dofin)
-
-----------------------------------------------------------------------------------------------------
 APIs:
 
 - SonarQube
   - https://sonar.alm.buhlergroup.com/web_api/api/measures
-
-----------------------------------------------------------------------------------------------------
-LOGIC:
-
-- Prerequisites:
-  - current sources locally pulled
-  - config file adjusted to point to the pulled directory
-
-1. tbd
-2. tbd
 
 ----------------------------------------------------------------------------------------------------
 Tips:
