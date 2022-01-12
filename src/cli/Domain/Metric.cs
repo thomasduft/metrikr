@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace metrikr.Domain
 {
   public class Metric
@@ -23,7 +25,7 @@ namespace metrikr.Domain
         new Metric {Id = "ccoup", Name = "Class coupling"},
         new Metric {Id = "ccomp", Name = "Cyclomatic complexity"},
         new Metric {Id = "dofin", Name = "Depth of inheritance"},
-        new Metric {Id = "ccof", Name = "Code coverage"},
+        new Metric {Id = "ccov", Name = "Code coverage"},
       };
     }
   }

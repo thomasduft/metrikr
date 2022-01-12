@@ -1,0 +1,31 @@
+{
+  "Name": "PI-XXXX",
+  "Date": "2022-01-12T00:00:00+01:00",
+  "Participants": [
+    {
+      "ProjectId": "Suite.Abstractions",
+      "Results": [
+        {
+          "MetricId": "midx",
+          "Value": 0
+        },
+        {
+          "MetricId": "ccoup",
+          "Value": 0
+        },
+        {
+          "MetricId": "ccomp",
+          "Value": 0
+        },
+        {
+          "MetricId": "dofin",
+          "Value": 0
+        },
+        {
+          "MetricId": "ccov",
+          "Value": 0
+        }
+      ]
+    }
+  ]
+}

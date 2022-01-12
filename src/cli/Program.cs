@@ -28,9 +28,50 @@ namespace metrikr
         .WriteTo.File($"logs/{file}.log")
         .CreateLogger();
 
-      var metrics = GetMetrics();
+      var metrics = Metric.All();
       var configuration = GetConfiguration(file);
 
+      // -----------
+
+      // var run = new Run
+      // {
+      //   Date = DateTime.Now.Date,
+      //   Name = "PI-2201",
+      //   Participants = new List<Participant>
+      //   {
+      //     new Participant
+      //     {
+      //       ProjectId = "Suite.Abstractions",
+      //       Results = new List<Result>
+      //       {
+      //         new Result { MetricId = metrics.ElementAt(0).Id, Value = 2.5m },
+      //         new Result { MetricId = metrics.ElementAt(1).Id, Value = 5m },
+      //         new Result { MetricId = metrics.ElementAt(2).Id, Value = 10m },
+      //         new Result { MetricId = metrics.ElementAt(3).Id, Value = 15m },
+      //         new Result { MetricId = metrics.ElementAt(4).Id, Value = 20m },
+      //       }
+      //     },
+      //     new Participant
+      //     {
+      //       ProjectId = "EventBus.Abstractions",
+      //       Results = new List<Result>
+      //       {
+      //         new Result { MetricId = metrics.ElementAt(0).Id, Value = 12.5m },
+      //         new Result { MetricId = metrics.ElementAt(1).Id, Value = 15m },
+      //         new Result { MetricId = metrics.ElementAt(2).Id, Value = 110m },
+      //         new Result { MetricId = metrics.ElementAt(3).Id, Value = 115m },
+      //         new Result { MetricId = metrics.ElementAt(4).Id, Value = 120m },
+      //       }
+      //     }
+      //   }
+      // };
+
+      // var text = JsonSerializer.Serialize(run, new JsonSerializerOptions {
+      //   WriteIndented = true
+      // });
+      // File.WriteAllText($"{run.Name.ToLowerInvariant().Replace(' ', '-')}.json", text);
+
+      // -----------
       // var runner = new Runner(taskConfiguration);
       // runner.Run();
 

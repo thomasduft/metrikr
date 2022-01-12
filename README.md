@@ -40,6 +40,8 @@ Brainstorming:
 
 - [How to: Generate code metrics data](https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2022)
 - [dotnet / roslyn-analyzers](https://github.com/dotnet/roslyn-analyzers)
+- [Analysis Tools](https://github.com/analysis-tools-dev/static-analysis#csharp)
+
 
 ## Domain
 
@@ -47,13 +49,12 @@ Brainstorming:
 
 - Configuration
   - RepositoryPath
+  - Metrics
   - Projects
     - Name
+    - Domain
     - ProjectId
     - ProjectPath
-    - Metrics
-      - Id
-      - Name
 
 - Run
   - Name
