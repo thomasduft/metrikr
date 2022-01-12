@@ -3,23 +3,6 @@ TODO:
 - [ ] ...
 
 ----------------------------------------------------------------------------------------------------
-METRICS:
-
-- Maintainability index (midx)
-- Class coupling (ccoup)
-- Cyclomatic complexity (ccomp)
-- Depth of inheritance (dofin)
-
-----------------------------------------------------------------------------------------------------
-LOGIC:
-
-- Prerequisites:
-  - current sources locally pulled
-  - config file adjusted to point to the pulled directory
-
-1.  
-
-----------------------------------------------------------------------------------------------------
 Tips:
 - dotnet tool install --global dotnet-ef
 - dotnet tool install --global dotnet-outdated-tool

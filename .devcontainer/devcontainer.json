@@ -2,15 +2,15 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.202.5/containers/dotnet
 {
 	"name": "metrikr",
-	"runArgs": ["--init"],
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": { 
 			// Update 'VARIANT' to pick a .NET Core version: 3.1, 5.0, 6.0
 			// Append -bullseye or -focal to pin to an OS version.
-			"VARIANT": "5.0",
+			"VARIANT": "6.0",
 			// Options
-			"NODE_VERSION": "none"
+			"NODE_VERSION": "lts/*",
+      "INSTALL_AZURE_CLI": "false"
 		}
 	},
 

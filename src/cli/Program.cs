@@ -55,17 +55,6 @@ namespace metrikr
       return file;
     }
 
-    static IEnumerable<Metric> GetMetrics()
-    {
-      return new List<Metric>
-      {
-        new Metric {Id = "midx", Name = "Maintainability Index"},
-        new Metric {Id = "ccoup", Name = "Class coupling"},
-        new Metric {Id = "ccomp", Name = "Cyclomatic complexity"},
-        new Metric {Id = "dofin", Name = "Depth of inheritance"},
-      };
-    }
-
     static Configuration GetConfiguration(string file)
     {
       Configuration configuration = null;

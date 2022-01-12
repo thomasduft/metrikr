@@ -2,7 +2,7 @@
   "RepositoryPath": "~/work/github/suite",
   "Projects": [
     {
-      "Name": "Name of project / module",
+      "Name": "Suite Abstractions",
       "ProjectId": "Suite.Abstractions",
       "ProjectPath": "src/suite/Abstractions/Suite.Abstractions.csproj",
       "Metrics": ["midx", "ccoup", "ccomp", "dofin"]

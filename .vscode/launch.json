@@ -9,7 +9,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/src/cli/bin/Debug/net5.0/metrikr.dll",
+      "program": "${workspaceFolder}/src/cli/bin/Debug/net6.0/metrikr.dll",
       "args": [
         "config.json"
       ],
