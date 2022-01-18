@@ -8,7 +8,7 @@
       "name": "metrikr",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build",
+      "preLaunchTask": "build-metrikr",
       "program": "${workspaceFolder}/src/cli/bin/Debug/net6.0/metrikr.dll",
       "args": [
         "config.json"
@@ -18,9 +18,22 @@
       "stopAtEntry": false
     },
     {
-      "name": ".NET Core Attach",
+      "name": "sln-creator",
       "type": "coreclr",
-      "request": "attach"
-    }
+      "request": "launch",
+      "preLaunchTask": "build-sln",
+      "program": "${workspaceFolder}/src/sln/bin/Debug/net6.0/sln.dll",
+      "args": [
+        "create-sln",
+        "modules",
+        "-i",
+        "C:\\work\\joint-forces\\joint-forces\\backend\\modules",
+        "-o",
+        "C:\\work\\joint-forces\\joint-forces\\backend"
+      ],
+      "cwd": "${workspaceFolder}/src/sln",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
   ]
 }

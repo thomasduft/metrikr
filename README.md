@@ -13,6 +13,7 @@ A tool to visualize your metrics over time
 ## Workflow
 
 Prerequisites:
+
 - current sources locally pulled
 - config file adjusted to point to the pulled directory
 
@@ -22,6 +23,7 @@ Prerequisites:
 - sonarqube.json
 
 Brainstorming:
+
 - xlsx file
 
 ### 2. Creating a run
@@ -41,7 +43,6 @@ Brainstorming:
 - [How to: Generate code metrics data](https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2022)
 - [dotnet / roslyn-analyzers](https://github.com/dotnet/roslyn-analyzers)
 - [Analysis Tools](https://github.com/analysis-tools-dev/static-analysis#csharp)
-
 
 ## Domain
 
