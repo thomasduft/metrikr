@@ -13,6 +13,14 @@ APIs:
 - SonarQube
   - https://sonar.alm.buhlergroup.com/web_api/api/measures
 
+1. https://sonar.alm.buhlergroup.com/api/components/search?qualifiers=TRK
+2. https://sonar.alm.buhlergroup.com/api/components/show?component=joint-forces-trending
+
+3. Metrics
+  - https://sonar.alm.buhlergroup.com/api/metrics/search
+4. Measures
+  - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-trending&metricKeys=coverage,complexity,violations
+
 ----------------------------------------------------------------------------------------------------
 Tips:
 - dotnet tool install --global dotnet-ef
