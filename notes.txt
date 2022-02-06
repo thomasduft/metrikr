@@ -14,12 +14,42 @@ APIs:
   - https://sonar.alm.buhlergroup.com/web_api/api/measures
 
 1. https://sonar.alm.buhlergroup.com/api/components/search?qualifiers=TRK
+  - searches for projects
+
 2. https://sonar.alm.buhlergroup.com/api/components/show?component=joint-forces-trending
+  - searches for ??? based on a project
 
 3. Metrics
   - https://sonar.alm.buhlergroup.com/api/metrics/search
+    - lists all metrics
+
 4. Measures
   - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-trending&metricKeys=coverage,complexity,violations
+    - lists measures based on a project and wanted metrics (metricKeys)
+
+
+Workflows
+
+=> Fetching SonarQube data
+  1. Get all projects
+  2. Get all metrics
+  3. foreach wanted project
+    - get wanted measures
+
+=> Visualizing data
+  1. load runs
+  2. foreach project/module
+    - load template
+    - generate static chart data
+    - store text
+  3. save file (i.e. Module-Metrics.html)
+
+----------------------------------------------------------------------------------------------------
+Links:
+
+- cool chart libs
+  - https://github.com/timqian/chart.xkcd
+  - https://github.com/chartjs/Chart.js
 
 ----------------------------------------------------------------------------------------------------
 Tips:

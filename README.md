@@ -1,37 +1,21 @@
 # metrikr
 
-A tool to visualize your metrics over time
-
-## METRICS
-
-- Maintainability index (midx)
-- Class coupling (ccoup)
-- Cyclomatic complexity (ccomp)
-- Depth of inheritance (dofin)
-- Code Coverage (ccov)
+A tool to visualize your metrics over time.
 
 ## Workflow
 
 Prerequisites:
 
-- current sources locally pulled
-- config file adjusted to point to the pulled directory
+- SonarQube api key available
 
-### 1. Generating assets => MetricSources
+### 1. Creating a run
 
-- metrics.xml
-- sonarqube.json
-
-Brainstorming:
-
-- xlsx file
-
-### 2. Creating a run
-
-- parsing metric sources
+- pulling configures metrics from SonarQube
 - generates a run => json structure with results
+  - json file
+  - need to be stored and versioned in git
 
-### 3. Use runs to visualize metrics over time
+### 2. Use runs to visualize metrics over time
 
 - create dataset that feeds a line chart in a simple html page
 - feed a xlsx sheet
@@ -47,6 +31,8 @@ Brainstorming:
 ## Domain
 
 ### Configuration
+
+- tbd
 
 - Configuration
   - RepositoryPath
