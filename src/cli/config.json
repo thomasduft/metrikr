@@ -1,18 +1,13 @@
 {
-  "RepositoryPath": "~/work/github/suite",
-  "Metrics": ["midx", "ccoup", "ccomp", "dofin", "ccov"],
+  "SonarQubeDomain": "https://sonar.alm.buhlergroup.com",
+  "OutputDirectory": "C:\\temp\\metrikr",
   "Projects": [
-    {
-      "Name": "Suite Abstractions",
-      "Domain": "Suite",
-      "ProjectId": "Suite.Abstractions",
-      "ProjectPath": "src/suite/Abstractions/Suite.Abstractions.csproj"
-    },
-    {
-      "Name": "Suite EventBus",
-      "Domain": "EventBus",
-      "ProjectId": "EventBus.Abstractions",
-      "ProjectPath": "src/EventBus/Abstractions/EventBus.Abstractions.csproj"
-    }
+    { "Id": "opportunity-tenzin-meag" },
+    { "Id": "opportunity-message-history" },
+    { "Id": "joint-forces-trending" }
+  ],
+  "Metrics": [
+    { "Id": "complexity" },
+    { "Id": "coverage" }
   ]
 }

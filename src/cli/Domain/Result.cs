@@ -1,9 +1,8 @@
-namespace metrikr.Domain
-{
-  public class Result
-  {
-    public string MetricId { get; set; }
+namespace metrikr.Domain;
 
-    public decimal Value { get; set; }
-  }
+public class Result
+{
+  public string MetricId { get; set; }
+
+  public decimal Value { get; set; }
 }

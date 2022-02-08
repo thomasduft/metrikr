@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace metrikr.Domain
+namespace metrikr.Domain;
+
+public class Run
 {
-  public class Run
-  {
-    public string Name { get; set; }
+  public string Name { get; set; }
 
-    public DateTime Date { get; set; }
+  public DateTime Date { get; set; }
 
-    public List<Participant> Participants { get; set; } = new List<Participant>();
-  }
+  public List<Participant> Participants { get; set; } = new List<Participant>();
 }

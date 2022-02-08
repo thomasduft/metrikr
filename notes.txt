@@ -32,7 +32,9 @@ Workflows
 
 => Fetching SonarQube data
   1. Get all projects
+    - https://sonar.alm.buhlergroup.com/api/components/search?qualifiers=TRK
   2. Get all metrics
+    - https://sonar.alm.buhlergroup.com/api/metrics/search
   3. foreach wanted project
     - get wanted measures
 
@@ -43,6 +45,10 @@ Workflows
     - generate static chart data
     - store text
   3. save file (i.e. Module-Metrics.html)
+
+
+CLI:
+- metrikr new-run "pi-2201" -c config.json
 
 ----------------------------------------------------------------------------------------------------
 Links:
