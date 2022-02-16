@@ -11,7 +11,10 @@
       "preLaunchTask": "build-metrikr",
       "program": "${workspaceFolder}/src/cli/bin/Debug/net6.0/metrikr.dll",
       "args": [
-        "config.json"
+        "new-run",
+        "my-run-name",
+        "config.json",
+        "api-key"
       ],
       "cwd": "${workspaceFolder}/src/cli",
       "console": "internalConsole",

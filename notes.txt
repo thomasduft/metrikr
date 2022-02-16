@@ -48,7 +48,7 @@ Workflows
 
 
 CLI:
-- metrikr new-run "pi-2201" -c config.json
+- metrikr new-run "pi-2201" -c config.json -k <my-sonarqube-apikey>
 
 ----------------------------------------------------------------------------------------------------
 Links:

@@ -6,7 +6,8 @@ public static class JsonExtensions
 {
   private static readonly JsonSerializerOptions _jsonOptions = new()
   {
-    PropertyNameCaseInsensitive = true
+    PropertyNameCaseInsensitive = true,
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
   };
 
   public static T FromJson<T>(this string json) =>

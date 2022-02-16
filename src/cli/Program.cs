@@ -1,64 +1,59 @@
-﻿using Serilog;
-using System;
+﻿using System;
 using System.IO;
-using System.Linq;
+using Microsoft.Extensions.CommandLineUtils;
 
 using metrikr.Configuration;
 using metrikr.Extensions;
-using metrikr.Utils;
+
+using static metrikr.Utils.ConsoleHelper;
+using metrikr.Workflows;
 
 namespace metrikr;
 
 class Program
 {
+  private const string HelpOption = "-?|-h|--help";
+
   static void Main(string[] args)
   {
-    if (args.Any(x => x == "--help"))
+    var app = new CommandLineApplication
     {
-      // var help = new Help();
-      // help.List();
+      Name = "metrikr"
+    };
+    app.HelpOption(HelpOption);
 
-      return;
-    }
-
-    string file = FindConfiguration(args);
-
-    Log.Logger = new LoggerConfiguration()
-      .WriteTo.File($"logs/{file}.log")
-      .CreateLogger();
-
-    var configuration = GetConfiguration(file);
-
-    // -----------
-
-    // var text = JsonSerializer.Serialize(run, new JsonSerializerOptions {
-    //   WriteIndented = true
-    // });
-    // File.WriteAllText($"{run.Name.ToLowerInvariant().Replace(' ', '-')}.json", text);
-
-    // -----------
-    // var runner = new Runner(taskConfiguration);
-    // runner.Run();
-
-    Console.WriteLine("Hello World!");
-  }
-
-  static string FindConfiguration(string[] args)
-  {
-    if (args.Length == 0)
+    app.Command("new-run", (command) =>
     {
-      ConsoleHelper.WriteLineError($"Please provide a configuration file!'");
-      ConsoleHelper.Exit(string.Empty);
-    }
+      command.Description = "Creates a new run (i.e. new-run \"pi-2201\" config.json <my-sonarqube-apikey>).";
+      var nameArgument = command.Argument("name", "Name of the run");
+      var configArgument = command.Argument("config", "Configuration file for the run");
+      var apiKeyArgument = command.Argument("api-key", "API-Key for SonarQube");
+      command.HelpOption(HelpOption);
+      command.OnExecute(() =>
+      {
+        var name = nameArgument.Value;
+        var config = GetConfiguration(configArgument.Value);
+        var apiKey = apiKeyArgument.Value;
 
-    var file = args[0];
-    if (!File.Exists(file))
+        CreateRunWorkflow createRun = new(name, config, apiKey);
+        createRun.Execute();
+
+        return 0;
+      });
+    });
+
+
+
+    app.OnExecute(() =>
     {
-      ConsoleHelper.WriteLineError($"Configuration file '{file}' is not present!'");
-      ConsoleHelper.Exit(string.Empty);
-    }
+      app.ShowHelp();
 
-    return file;
+      return 0;
+    });
+
+    app.Execute(args);
+
+    WriteLineSuccess("done...");
   }
 
   static MetrikRConfiguration GetConfiguration(string file)
@@ -66,15 +61,13 @@ class Program
     MetrikRConfiguration configuration = null;
     try
     {
-      ConsoleHelper.WriteLine($"Reading config from file '{file}'");
-      configuration = File.ReadAllText(file)
-        .FromJson<MetrikRConfiguration>();
+      WriteLine($"Reading config from file '{file}'");
+      configuration = File.ReadAllText(file).FromJson<MetrikRConfiguration>();
     }
     catch (Exception ex)
     {
-      var reason = $"Error in reading config.json file!'";
-      Log.Error(ex, reason);
-      ConsoleHelper.Exit(reason);
+      var reason = $"Error in reading config.json file! Exception: '{ex.Message}'";
+      Exit(reason);
     }
 
     return configuration;
