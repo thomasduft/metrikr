@@ -3,15 +3,36 @@
   "date": "2022-02-17T00:00:00+01:00",
   "participants": [
     {
-      "projectId": "opportunity-tenzin-meag",
+      "projectId": "joint-forces-trending",
       "results": [
         {
-          "metricId": "coverage",
-          "value": "83.8"
+          "metricId": "cognitive_complexity",
+          "value": "157"
         },
         {
           "metricId": "complexity",
-          "value": "659"
+          "value": "640"
+        },
+        {
+          "metricId": "coverage",
+          "value": "78.2"
+        }
+      ]
+    },
+    {
+      "projectId": "opportunity-audit",
+      "results": [
+        {
+          "metricId": "cognitive_complexity",
+          "value": "111"
+        },
+        {
+          "metricId": "complexity",
+          "value": "360"
+        },
+        {
+          "metricId": "coverage",
+          "value": "65.9"
         }
       ]
     },
@@ -19,25 +40,16 @@
       "projectId": "opportunity-message-history",
       "results": [
         {
-          "metricId": "complexity",
-          "value": "434"
+          "metricId": "cognitive_complexity",
+          "value": "107"
         },
         {
           "metricId": "coverage",
           "value": "95.1"
-        }
-      ]
-    },
-    {
-      "projectId": "joint-forces-trending",
-      "results": [
-        {
-          "metricId": "coverage",
-          "value": "78.2"
         },
         {
           "metricId": "complexity",
-          "value": "640"
+          "value": "434"
         }
       ]
     }

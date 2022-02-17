@@ -45,9 +45,11 @@ public class CreateRunWorkflow
 
   private Run CreateRun(IEnumerable<Component> projects, string metricIdsForProject)
   {
-    var run = new Run();
-    run.Name = _runName;
-    run.Date = DateTime.Today;
+    var run = new Run
+    {
+      Name = _runName,
+      Date = DateTime.Today
+    };
 
     foreach (var project in projects)
     {
@@ -72,6 +74,9 @@ public class CreateRunWorkflow
 
       run.Participants.Add(participant);
     }
+
+    // sort participants alphabetically
+    run.Participants.Sort();
 
     return run;
   }

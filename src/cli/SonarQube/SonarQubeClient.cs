@@ -21,7 +21,8 @@ public class SonarQubeClient
 
   public async Task<ProjectInfo> GetProjects()
   {
-    var response = await _client.GetAsync(CreateUri("api/components/search?qualifiers=TRK"));
+    // PageSize set to max = 500 items
+    var response = await _client.GetAsync(CreateUri("api/components/search?ps=500&qualifiers=TRK"));
     response.EnsureSuccessStatusCode();
 
     var json = await response.Content.ReadAsStringAsync();
@@ -32,7 +33,8 @@ public class SonarQubeClient
 
   public async Task<MetricInfo> GetMetrics()
   {
-    var response = await _client.GetAsync(CreateUri("api/metrics/search"));
+    // PageSize set to max = 500 items
+    var response = await _client.GetAsync(CreateUri("api/metrics/search?ps=500"));
     response.EnsureSuccessStatusCode();
 
     var json = await response.Content.ReadAsStringAsync();

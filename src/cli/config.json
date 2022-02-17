@@ -2,12 +2,31 @@
   "SonarQubeDomain": "https://sonar.alm.buhlergroup.com",
   "OutputDirectory": "../../samples/runs",
   "Projects": [
-    { "Id": "opportunity-tenzin-meag" },
-    { "Id": "opportunity-message-history" },
-    { "Id": "joint-forces-trending" }
+    {
+      "Id": "opportunity-audit",
+      "Name": "Audit module"
+    },
+    {
+      "Id": "opportunity-message-history",
+      "Name": "Message history module"
+    },
+    {
+      "Id": "joint-forces-trending",
+      "Name": "Trending module"
+    }
   ],
   "Metrics": [
-    { "Id": "complexity" },
-    { "Id": "coverage" }
+    {
+      "Id": "complexity",
+      "Name": "Cyclomatic Complexity"
+    },
+    {
+      "Id": "cognitive_complexity",
+      "Name": "Cognitive Complexity"
+    },
+    {
+      "Id": "coverage",
+      "Name": "Overall Coverage"
+    }
   ]
 }
