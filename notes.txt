@@ -1,7 +1,14 @@
 TODO:
 
 - [ ] metrikr
-  - check paginations in order to get all items
+  - [ ] brainstorm which essential metrics should be covered
+    - Domains:
+      - Security
+      - Maintainability
+      - Coverage
+      - Complexity
+  - [ ] create chart visualization strategy
+  - [ ] create xlsx visualization strategy
 
 
 - [ ] sln creator
