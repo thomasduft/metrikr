@@ -1,5 +1,9 @@
 TODO:
 
+- [ ] metrikr
+  - check paginations in order to get all items
+
+
 - [ ] sln creator
   1. dotnet new sln -n modules
   2. dotnet sln modules.sln add \modules\audit\src\Audit\Audit.csproj

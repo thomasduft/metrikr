@@ -39,7 +39,7 @@ public class CreateRunWorkflow
     Run run = CreateRun(projects, metricIdsForProject);
 
     var runAsJson = run.ToJson();
-    var path = $"{_config.OutputDirectory}/{run.Name.Replace(" ", "-")}";
+    var path = $"{_config.OutputDirectory}/{run.Name.Replace(" ", "-")}.json";
     System.IO.File.WriteAllText(path, runAsJson);
   }
 
@@ -65,7 +65,7 @@ public class CreateRunWorkflow
         var result = new Result
         {
           MetricId = measure.Metric,
-          Value = decimal.Parse(measure.Value) // TODO parsing decimal values
+          Value = measure.Value
         };
         participant.Results.Add(result);
       }

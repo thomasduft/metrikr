@@ -12,9 +12,9 @@
       "program": "${workspaceFolder}/src/cli/bin/Debug/net6.0/metrikr.dll",
       "args": [
         "new-run",
-        "my-run-name",
+        "pi-2201-sample",
         "config.json",
-        "api-key"
+        "5f3eb2853a960a7ebc2fe4887301d318f850eacb"
       ],
       "cwd": "${workspaceFolder}/src/cli",
       "console": "internalConsole",

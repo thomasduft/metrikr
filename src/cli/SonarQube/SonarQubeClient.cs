@@ -1,5 +1,7 @@
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using metrikr.Extensions;
 
@@ -57,9 +59,13 @@ public class SonarQubeClient
     // TODO: review/rework and test
 
     var client = new HttpClient();
-
+    var username = apiKey;
+    var password = string.Empty;
     client.DefaultRequestHeaders.Add("Accept", "application/json");
-    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", apiKey);
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+      "Basic",
+      Convert.ToBase64String(Encoding.ASCII.GetBytes($"{username}:{password}"))
+    );
 
     return client;
   }

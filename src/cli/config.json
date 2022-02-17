@@ -1,6 +1,6 @@
 {
   "SonarQubeDomain": "https://sonar.alm.buhlergroup.com",
-  "OutputDirectory": "C:\\temp\\metrikr",
+  "OutputDirectory": "../../samples/runs",
   "Projects": [
     { "Id": "opportunity-tenzin-meag" },
     { "Id": "opportunity-message-history" },

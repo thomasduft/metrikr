@@ -1,0 +1,45 @@
+{
+  "name": "pi-2201-sample",
+  "date": "2022-02-17T00:00:00+01:00",
+  "participants": [
+    {
+      "projectId": "opportunity-tenzin-meag",
+      "results": [
+        {
+          "metricId": "coverage",
+          "value": "83.8"
+        },
+        {
+          "metricId": "complexity",
+          "value": "659"
+        }
+      ]
+    },
+    {
+      "projectId": "opportunity-message-history",
+      "results": [
+        {
+          "metricId": "complexity",
+          "value": "434"
+        },
+        {
+          "metricId": "coverage",
+          "value": "95.1"
+        }
+      ]
+    },
+    {
+      "projectId": "joint-forces-trending",
+      "results": [
+        {
+          "metricId": "coverage",
+          "value": "78.2"
+        },
+        {
+          "metricId": "complexity",
+          "value": "640"
+        }
+      ]
+    }
+  ]
+}
