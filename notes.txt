@@ -2,13 +2,21 @@ TODO:
 
 - [ ] metrikr
   - [ ] brainstorm which essential metrics should be covered
+    - https://docs.sonarqube.org/latest/user-guide/metric-definitions/
     - Domains:
-      - Security
-      - Maintainability
-      - Coverage
-      - Complexity
+      - Complexity: complexity, cognitive_complexity
+      - Coverage: coverage, uncovered_lines, tests
+      - Maintainability: sqale_rating
+      - Security: security_rating
+      - Size: classes, ncloc, ncloc_language_distribution
   - [ ] create chart visualization strategy
   - [ ] create xlsx visualization strategy
+
+
+- [ ] also consider to create tooling that:
+  - lists classes with too many dependencies (i.e. only 5 deps allowed)
+    - call that: god_object - metric
+  - create tooling that generates dep graph based on projects
 
 
 - [ ] sln creator
@@ -57,9 +65,16 @@ Workflows
     - store text
   3. save file (i.e. Module-Metrics.html)
 
-
 CLI:
 - metrikr new-run "pi-2201" -c config.json -k <my-sonarqube-apikey>
+
+----------------------------------------------------------------------------------------------------
+dotnet tool:
+
+- dotnet tool list --global
+
+- locally installing metrikr on a linux environment
+- ./install.sh 1.1.0 r p
 
 ----------------------------------------------------------------------------------------------------
 Links:
@@ -67,6 +82,7 @@ Links:
 - cool chart libs
   - https://github.com/timqian/chart.xkcd
   - https://github.com/chartjs/Chart.js
+  - https://gionkunz.github.io/chartist-js/
 
 ----------------------------------------------------------------------------------------------------
 Tips:
