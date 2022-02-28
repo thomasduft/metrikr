@@ -1,14 +1,6 @@
 TODO:
 
 - [ ] metrikr
-  - [ ] brainstorm which essential metrics should be covered
-    - https://docs.sonarqube.org/latest/user-guide/metric-definitions/
-    - Domains:
-      - Complexity: complexity, cognitive_complexity
-      - Coverage: coverage, uncovered_lines, tests
-      - Maintainability: sqale_rating
-      - Security: security_rating
-      - Size: classes, ncloc, ncloc_language_distribution
   - [ ] create chart visualization strategy
   - [ ] create xlsx visualization strategy
 

@@ -35,6 +35,14 @@ class Program
         var config = GetConfiguration(configArgument.Value);
         var apiKey = apiKeyArgument.Value;
 
+        if (string.IsNullOrWhiteSpace(name)
+          || config == null
+          || string.IsNullOrEmpty(apiKey))
+        {
+          WriteLineError("Not all mandatory parameters have been provided!");
+          return 1;
+        }
+
         CreateRunWorkflow createRun = new(name, config, apiKey);
         createRun.Execute();
 
