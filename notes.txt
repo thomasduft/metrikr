@@ -1,7 +1,7 @@
 TODO:
 
 - [ ] metrikr
-  - [ ] create chart visualization strategy
+  - [ ] create html chart visualization strategy
   - [ ] create xlsx visualization strategy
 
 
@@ -23,20 +23,21 @@ APIs:
 
 - SonarQube
   - https://sonar.alm.buhlergroup.com/web_api/api/measures
+  - https://docs.sonarqube.org/latest/user-guide/metric-definitions/
 
-1. https://sonar.alm.buhlergroup.com/api/components/search?qualifiers=TRK
-  - searches for projects
+  1. https://sonar.alm.buhlergroup.com/api/components/search?qualifiers=TRK
+    - searches for projects
 
-2. https://sonar.alm.buhlergroup.com/api/components/show?component=joint-forces-trending
-  - searches for ??? based on a project
+  2. https://sonar.alm.buhlergroup.com/api/components/show?component=joint-forces-trending
+    - searches for ??? based on a project
 
-3. Metrics
-  - https://sonar.alm.buhlergroup.com/api/metrics/search
-    - lists all metrics
+  3. Metrics
+    - https://sonar.alm.buhlergroup.com/api/metrics/search
+      - lists all metrics
 
-4. Measures
-  - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-trending&metricKeys=coverage,complexity,violations
-    - lists measures based on a project and wanted metrics (metricKeys)
+  4. Measures
+    - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-trending&metricKeys=coverage,complexity,violations
+      - lists measures based on a project and wanted metrics (metricKeys)
 
 
 Workflows
@@ -54,11 +55,11 @@ Workflows
   2. foreach project/module
     - load template
     - generate static chart data
+      - template engines:
+        - https://github.com/Handlebars-Net/Handlebars.Net
+        - https://github.com/dotliquid/dotliquid
     - store text
   3. save file (i.e. Module-Metrics.html)
-
-CLI:
-- metrikr new-run "pi-2201" -c config.json -k <my-sonarqube-apikey>
 
 ----------------------------------------------------------------------------------------------------
 dotnet tool:
