@@ -5,18 +5,37 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "metrikr",
+      "name": "metrikr:new-run",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-metrikr",
-      "program": "${workspaceFolder}/src/cli/bin/Debug/net6.0/metrikr.dll",
+      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net6.0/metrikr.dll",
       "args": [
         "new-run",
         "pi-2201-sample",
         "config.json",
         "5f3eb2853a960a7ebc2fe4887301d318f850eacb"
       ],
-      "cwd": "${workspaceFolder}/src/cli",
+      "cwd": "${workspaceFolder}/src/metrikr",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "metrikr:visualize",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-metrikr",
+      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net6.0/metrikr.dll",
+      "args": [
+        "visualize",
+        "-s",
+        "html",
+        "-i",
+        "../../samples/runs",
+        "-o",
+        "../../samples/visualizations"
+      ],
+      "cwd": "${workspaceFolder}/src/metrikr",
       "console": "internalConsole",
       "stopAtEntry": false
     },

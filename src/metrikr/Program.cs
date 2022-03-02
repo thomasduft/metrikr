@@ -5,8 +5,10 @@ using Microsoft.Extensions.CommandLineUtils;
 using metrikr.Configuration;
 using metrikr.Extensions;
 
-using static metrikr.Utils.ConsoleHelper;
 using metrikr.Workflows;
+using metrikr.Visualization;
+
+using static metrikr.Utils.ConsoleHelper;
 
 namespace metrikr;
 
@@ -43,14 +45,38 @@ class Program
           return 1;
         }
 
-        CreateRunWorkflow createRun = new(name, config, apiKey);
-        createRun.Execute();
+        CreateRunWorkflow runner = new(name, config, apiKey);
+        runner.Execute();
 
         return 0;
       });
     });
 
+    app.Command("visualize", (command) =>
+    {
+      command.Description = "Visualizes runs based on a strategy (i.e. visualize -s html -o ../temp).";
+      var strategyOption = command.Option("-s|--strategy", "Strategy to visualize with.", CommandOptionType.SingleValue);
+      var inputDirOption = command.Option("-i|--input-directory", "Input directory.", CommandOptionType.SingleValue);
+      var outputDirOption = command.Option("-o|--output-directory", "Output directory.", CommandOptionType.SingleValue);
+      command.HelpOption(HelpOption);
+      command.OnExecute(() =>
+      {
+        var strategy = strategyOption.HasValue()
+          ? strategyOption.Value()
+          : HtmlvisualizationStrategy.KEY;
+        var inputDir = inputDirOption.HasValue()
+          ? inputDirOption.Value()
+          : Environment.CurrentDirectory;
+        var outputDir = outputDirOption.HasValue()
+          ? outputDirOption.Value()
+          : Environment.CurrentDirectory;
 
+        VisualizeDataWorkflow visualizer = new(inputDir, outputDir);
+        visualizer.Visualize(strategy);
+
+        return 0;
+      });
+    });
 
     app.OnExecute(() =>
     {

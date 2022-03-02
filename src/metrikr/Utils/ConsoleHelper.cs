@@ -31,7 +31,7 @@ public static class ConsoleHelper
     Console.ForegroundColor = ConsoleColor.White;
   }
 
-  public static void WriteLine(string value)
+  public static void WriteLine(string value = null)
   {
     Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine(value);
