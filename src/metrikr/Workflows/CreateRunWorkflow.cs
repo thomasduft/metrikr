@@ -39,7 +39,7 @@ public class CreateRunWorkflow
     Run run = CreateRun(projects, metricIdsForProject);
 
     var runAsJson = run.ToJson();
-    var path = $"{_config.OutputDirectory}/{run.Name.Replace(" ", "-")}.json";
+    var path = $"{_config.RunsDirectory}/{run.Name.Replace(" ", "-")}.json";
     System.IO.File.WriteAllText(path, runAsJson);
   }
 

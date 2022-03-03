@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using metrikr.Configuration;
 using metrikr.Domain;
 using metrikr.Extensions;
 using metrikr.Visualization;
@@ -10,18 +12,16 @@ using static metrikr.Utils.ConsoleHelper;
 
 public class VisualizeDataWorkflow
 {
-  private readonly string _inputDir;
-  private readonly string _outputDir;
+  private readonly MetrikRConfiguration _config;
 
   private readonly Dictionary<string, IVisualizationStrategy> _strategies = new()
   {
     { HtmlvisualizationStrategy.KEY, new HtmlvisualizationStrategy() }
   };
 
-  public VisualizeDataWorkflow(string inputDir, string outputDir)
+  public VisualizeDataWorkflow(MetrikRConfiguration config)
   {
-    _inputDir = inputDir;
-    _outputDir = outputDir;
+    _config = config;
   }
 
   public void Visualize(string strategy)
@@ -45,11 +45,16 @@ public class VisualizeDataWorkflow
     }
 
     // 3. locate the strategy and pass in the runs
-    _strategies[strategy].Visualize(runs, _outputDir);
+    _strategies[strategy].Visualize(new(
+      _config.Projects, 
+      _config.Metrics, 
+      runs, 
+      Environment.CurrentDirectory
+    ));
   }
 
   private IEnumerable<string> GetFiles()
   {
-    return Directory.GetFiles(_inputDir, "*.json", SearchOption.AllDirectories);
+    return Directory.GetFiles(_config.RunsDirectory, "*.json", SearchOption.AllDirectories);
   }
 }

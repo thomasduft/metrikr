@@ -1,6 +1,7 @@
 {
   "SonarQubeDomain": "https://sonar.alm.buhlergroup.com",
-  "OutputDirectory": "../../samples/runs",
+  "RunsDirectory": "../../samples/runs",
+  "VisualizationStrategy": "html",
   "Projects": [
     {
       "Id": "opportunity-audit",

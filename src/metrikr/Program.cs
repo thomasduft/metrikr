@@ -54,25 +54,31 @@ class Program
 
     app.Command("visualize", (command) =>
     {
-      command.Description = "Visualizes runs based on a strategy (i.e. visualize -s html -o ../temp).";
-      var strategyOption = command.Option("-s|--strategy", "Strategy to visualize with.", CommandOptionType.SingleValue);
-      var inputDirOption = command.Option("-i|--input-directory", "Input directory.", CommandOptionType.SingleValue);
-      var outputDirOption = command.Option("-o|--output-directory", "Output directory.", CommandOptionType.SingleValue);
-      command.HelpOption(HelpOption);
+      command.Description = "Visualizes runs based on a strategy (i.e. visualize config.json).";
+      var configArgument = command.Argument("config", "Configuration file"); command.HelpOption(HelpOption);
       command.OnExecute(() =>
       {
-        var strategy = strategyOption.HasValue()
-          ? strategyOption.Value()
-          : HtmlvisualizationStrategy.KEY;
-        var inputDir = inputDirOption.HasValue()
-          ? inputDirOption.Value()
-          : Environment.CurrentDirectory;
-        var outputDir = outputDirOption.HasValue()
-          ? outputDirOption.Value()
-          : Environment.CurrentDirectory;
+        var config = GetConfiguration(configArgument.Value);
+        if (config == null)
+        {
+          WriteLineError("Please provide a valid configuration!");
+          return 1;
+        }
 
-        VisualizeDataWorkflow visualizer = new(inputDir, outputDir);
-        visualizer.Visualize(strategy);
+        if (string.IsNullOrWhiteSpace(config.RunsDirectory))
+        {
+          WriteLineError("Property 'RunsDirectory' in configuration not configured!");
+          return 1;
+        }
+
+        if (string.IsNullOrWhiteSpace(config.VisualizationStrategy))
+        {
+          WriteLineError("Property 'VisualizationStrategy' in configuration not configured!");
+          return 1;
+        }
+
+        VisualizeDataWorkflow visualizer = new(config);
+        visualizer.Visualize(config.VisualizationStrategy);
 
         return 0;
       });
