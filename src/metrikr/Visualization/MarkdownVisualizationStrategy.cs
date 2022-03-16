@@ -5,8 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-using static metrikr.Utils.ConsoleHelper;
-
 public class MarkdownvisualizationStrategy : IVisualizationStrategy
 {
   public const string KEY = "md";
@@ -62,14 +60,13 @@ public class MarkdownvisualizationStrategy : IVisualizationStrategy
   }
 
   private static string GetProjectData(
-    string metricId, 
-    string projectId, 
+    string metricId,
+    string projectId,
     IEnumerable<Domain.Run> runs
   )
   {
-    WriteLine($"MetricId: '{metricId}', ProjectId: '{projectId}'");
-
     var results = new List<string>();
+
     foreach (var run in runs.OrderBy(_ => _.Date))
     {
       var projects = run.Participants.Where(p => p.ProjectId == projectId);
