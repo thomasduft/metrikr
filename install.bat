@@ -23,12 +23,12 @@ echo Restore solution
 dotnet restore src/metrikr
 
 echo ----
-echo Packaging scaffy
+echo Packaging metrikr
 echo Packaging solution with Version = %version%
 dotnet pack src/metrikr -c Release -p:PackageVersion=%version% -p:Version=%version% -o ./dist/nupkgs
 
 echo ----
-set /p isInstallation=Install scaffy (y/n):
+set /p isInstallation=Install metrikr (y/n):
 
 echo %isInstallation%
 if "%isInstallation%" == "y" (
