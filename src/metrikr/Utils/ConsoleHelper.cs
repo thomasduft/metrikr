@@ -6,7 +6,7 @@ public static class ConsoleHelper
 {
   public static void Exit(string reason)
   {
-    Console.WriteLine(reason);
+    WriteLineError(reason);
     Environment.Exit(1);
   }
 
