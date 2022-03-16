@@ -16,7 +16,8 @@ public class VisualizeDataWorkflow
 
   private readonly Dictionary<string, IVisualizationStrategy> _strategies = new()
   {
-    { HtmlvisualizationStrategy.KEY, new HtmlvisualizationStrategy() }
+    { HtmlvisualizationStrategy.KEY, new HtmlvisualizationStrategy() },
+    { MarkdownvisualizationStrategy.KEY, new MarkdownvisualizationStrategy() }
   };
 
   public VisualizeDataWorkflow(MetrikRConfiguration config)
@@ -46,10 +47,10 @@ public class VisualizeDataWorkflow
 
     // 3. locate the strategy and pass in the runs
     _strategies[strategy].Visualize(new(
-      _config.Projects, 
-      _config.Metrics, 
-      runs, 
-      Environment.CurrentDirectory
+      _config.Projects,
+      _config.Metrics,
+      runs,
+      _config.VisualizationsDirectory
     ));
   }
 

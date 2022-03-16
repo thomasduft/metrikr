@@ -17,6 +17,11 @@ public class MetrikRConfiguration
   public string RunsDirectory { get; set; }
 
   /// <summary>
+  /// Directory where the visualizations are stored.
+  /// </summary>
+  public string VisualizationsDirectory { get; set; }
+
+  /// <summary>
   /// Strategy for visualization runs.
   /// </summary>
   public string VisualizationStrategy { get; set; }

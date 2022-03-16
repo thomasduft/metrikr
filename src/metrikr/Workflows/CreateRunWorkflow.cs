@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using metrikr.Configuration;
 using metrikr.Domain;
@@ -40,7 +41,7 @@ public class CreateRunWorkflow
 
     var runAsJson = run.ToJson();
     var path = $"{_config.RunsDirectory}/{run.Name.Replace(" ", "-")}.json";
-    System.IO.File.WriteAllText(path, runAsJson);
+    File.WriteAllText(path, runAsJson);
   }
 
   private Run CreateRun(IEnumerable<Component> projects, string metricIdsForProject)

@@ -7,41 +7,26 @@ using System.Text;
 
 using static metrikr.Utils.ConsoleHelper;
 
-public class HtmlvisualizationStrategy : IVisualizationStrategy
+public class MarkdownvisualizationStrategy : IVisualizationStrategy
 {
-  public const string KEY = "html";
+  public const string KEY = "md";
 
   public string Key => KEY;
 
   public void Visualize(VisualizationParam param)
   {
     var builder = new StringBuilder();
-
-    var headAndStartOfBody =
-@$"<!DOCTYPE html>
-<html lang=""en"">
-<head>
-  <meta charset=""utf-8"">
-  <title>JointForces fitness report</title>
-  <script src=""https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min.js""></script>
-  <style>
-    .container {{
-      margin: 0 auto;
-      padding: 0 20px;
-      max-width: 940px;
-      position: relative;
-    }}
-  </style>
-</head>
-<body>";
-
-    builder.AppendLine(headAndStartOfBody);
+    builder.AppendLine("# JointForces fitness report");
     builder.AppendLine();
+    builder.AppendLine(@"<script src=""https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min.js""></script>");
 
     // ## Metrics
     foreach (var metric in param.Metrics.OrderBy(_ => _.Name))
     {
-      builder.AppendLine(@$"<div class=""container""><svg class=""{metric.Id}-chart""></svg>");
+      builder.AppendLine();
+      builder.AppendLine($"## {metric.Name}");
+      builder.AppendLine();
+      builder.AppendLine(@$"<div><svg class=""{metric.Id}-chart""></svg></div>");
 
       var title = $"'{metric.Name}'";
       var labels = string.Join(',', param.Runs.Select(r => $"'{r.Name}'"));
@@ -70,18 +55,9 @@ public class HtmlvisualizationStrategy : IVisualizationStrategy
 </script>";
 
       builder.AppendLine(chart);
-      builder.AppendLine("</div>");
-      builder.AppendLine();
     }
 
-    var bodyAndEnd =
-@$"</body>
-
-</html>";
-
-    builder.AppendLine(bodyAndEnd);
-
-    var path = $"{param.OutputDir}/fitness-report.html";
+    var path = $"{param.OutputDir}/fitness-report.md";
     File.WriteAllText(path, builder.ToString());
   }
 

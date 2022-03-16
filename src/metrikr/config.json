@@ -1,6 +1,7 @@
 {
   "SonarQubeDomain": "https://sonar.alm.buhlergroup.com",
   "RunsDirectory": "../../samples/runs",
+  "VisualizationsDirectory": "../../samples/visualizations",
   "VisualizationStrategy": "html",
   "Projects": [
     {
