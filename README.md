@@ -1,53 +1,90 @@
 # metrikr
 
-A tool to visualize your metrics over time.
+A tool to visualize your [SonarQube](https://www.sonarqube.org/) metrics over time.
 
 ## Workflow
 
 Prerequisites:
 
 - SonarQube api key available
+- metrikr installed as a global dotnet tool
+- [configuration](#configuration-configjson) file prepared 
 
 ### 1. Creating a run
 
-- pulling configures metrics from SonarQube
-- generates a run => json structure with results
-  - json file
-  - need to be stored and versioned in git
+> metrikr new-run "pi-2201" config.json \<my-sonarqube-apikey>
+
+- based on the configured projects scans and pulls the sonarqube metrics
+- generates a json-file known as a **run** that can be versioned
 
 ### 2. Use runs to visualize metrics over time
 
-- create dataset that feeds a line chart in a simple html page
-- feed a xlsx sheet
-  - powerpivot table
-  - charts
+> metrikr visualize config.json
 
-## Resources
+- reads the runs
+- based on the configured visualization strategy creates the visualization
 
-- [How to: Generate code metrics data](https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2022)
-- [dotnet / roslyn-analyzers](https://github.com/dotnet/roslyn-analyzers)
-- [Analysis Tools](https://github.com/analysis-tools-dev/static-analysis#csharp)
+## How to use
 
-## Domain
+> metrikr -h
 
-### Configuration
+```console
+Usage: metrikr [options] [command]
 
-- tbd
+Options:
+  -?|-h|--help  Show help information
 
-- Configuration
-  - RepositoryPath
-  - Metrics
-  - Projects
-    - Name
-    - Domain
-    - ProjectId
-    - ProjectPath
+Commands:
+  new-run    Creates a new run (i.e. new-run "pi-2201" config.json <my-sonarqube-apikey>).
+  visualize  Visualizes runs based on a strategy (i.e. visualize config.json).
 
-- Run
-  - Name
-  - Date
-  - Participants
-    - ProjectId
-    - Results
-      - MetricId
-      - Value
+Use "metrikr [command] --help" for more information about a command.
+```
+
+### Configuration (config.json)
+
+```json
+{
+  // domain where your sonarqube is running
+  "SonarQubeDomain": "https://sonar.alm.buhlergroup.com",
+  // directory where runs are stored and versioned
+  "RunsDirectory": "../../samples/runs",
+  // directory where visualizations are stored and versioned
+  "VisualizationsDirectory": "../../samples/visualizations",
+  // strategy of how runs will be visualized
+  "VisualizationStrategy": "html",
+  // sonarqube projects to scan for metrics with some human readable meta-data
+  "Projects": [
+    {
+      "Id": "opportunity-audit",
+      "Name": "Audit module"
+    },
+    {
+      "Id": "opportunity-message-history",
+      "Name": "Message history module"
+    },
+    {
+      "Id": "joint-forces-trending",
+      "Name": "Trending module"
+    }
+  ],
+  // sonarqube available metrics to be visualized over time with some human readable meta-data
+  "Metrics": [
+    {
+      "Id": "complexity",
+      "Name": "Cyclomatic Complexity",
+      "Description": "Super description for Cyclomatic Complexity"
+    },
+    {
+      "Id": "cognitive_complexity",
+      "Name": "Cognitive Complexity",
+      "Description": "Super description for Cognitive Complexity"
+    },
+    {
+      "Id": "coverage",
+      "Name": "Overall Coverage",
+      "Description": "Super description for Overall Coverage"
+    }
+  ]
+}
+```
