@@ -20,15 +20,18 @@
   "Metrics": [
     {
       "Id": "complexity",
-      "Name": "Cyclomatic Complexity"
+      "Name": "Cyclomatic Complexity",
+      "Description": "Super description for Cyclomatic Complexity"
     },
     {
       "Id": "cognitive_complexity",
-      "Name": "Cognitive Complexity"
+      "Name": "Cognitive Complexity",
+      "Description": "Super description for Cognitive Complexity"
     },
     {
       "Id": "coverage",
-      "Name": "Overall Coverage"
+      "Name": "Overall Coverage",
+      "Description": "Super description for Overall Coverage"
     }
   ]
 }

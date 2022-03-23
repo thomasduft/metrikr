@@ -72,10 +72,10 @@ dotnet tool:
 ----------------------------------------------------------------------------------------------------
 Links:
 
-- cool chart libs
-  - https://github.com/timqian/chart.xkcd
+- Chart.js
+  - https://www.chartjs.org/docs/latest/
   - https://github.com/chartjs/Chart.js
-  - https://gionkunz.github.io/chartist-js/
+  - https://github.com/kurkle/chartjs-plugin-autocolors
 
 ----------------------------------------------------------------------------------------------------
 Tips:

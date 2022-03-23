@@ -21,7 +21,8 @@ public class HtmlvisualizationStrategy : IVisualizationStrategy
 <head>
   <meta charset=""utf-8"">
   <title>JointForces fitness report</title>
-  <script src=""https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min.js""></script>
+  <script src=""https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js""></script>
+  <script src=""https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors""></script>
   <style>
     .container {{
       margin: 0 auto;
@@ -31,7 +32,10 @@ public class HtmlvisualizationStrategy : IVisualizationStrategy
     }}
   </style>
 </head>
-<body>";
+<body>
+  <script>
+    Chart.register(window['chartjs-plugin-autocolors']);
+  </script>";
 
     builder.AppendLine(headAndStartOfBody);
     builder.AppendLine();
@@ -39,7 +43,9 @@ public class HtmlvisualizationStrategy : IVisualizationStrategy
     // ## Metrics
     foreach (var metric in param.Metrics.OrderBy(_ => _.Name))
     {
-      builder.AppendLine(@$"<div class=""container""><svg class=""{metric.Id}-chart""></svg>");
+      builder.AppendLine(@$"<div class=""container""><h2>{metric?.Name}</h2>");
+      builder.AppendLine(@$"<p>{metric?.Description}</p>");
+      builder.AppendLine(@$"<canvas id=""{metric.Id}-chart""></canvas>");
 
       var title = $"'{metric.Name}'";
       var labels = string.Join(',', param.Runs.Select(r => $"'{r.Name}'"));
@@ -49,21 +55,33 @@ public class HtmlvisualizationStrategy : IVisualizationStrategy
       {
         string data = GetProjectData(metric.Id, project.Id, param.Runs);
         datasetsBuilder.AppendLine("{");
+        datasetsBuilder.AppendLine($"  data: [{data}],");
         datasetsBuilder.AppendLine($"  label: '{project.Name}',");
-        datasetsBuilder.AppendLine($"  data: [{data}]");
+        datasetsBuilder.AppendLine($"  fill: false");
         datasetsBuilder.AppendLine("},");
       }
 
       var chart =
 @$"<script>
-  new chartXkcd.Line(document.querySelector('.{metric.Id}-chart'), {{
-      title: {title},
-      data: {{
-        labels: [{labels}],
-        datasets: [
-          {datasetsBuilder}
-        ]
+  new Chart(document.getElementById('{metric.Id}-chart'), {{
+    type: 'line',
+    options: {{
+      title: {{
+        display: true,
+        text: {title}
+      }},
+      plugins: {{
+        legend: {{
+          position: 'bottom'
+        }}
       }}
+    }}, 
+    data: {{
+      labels: [{labels}],
+      datasets: [
+        {datasetsBuilder}
+      ]
+    }}
   }});
 </script>";
 

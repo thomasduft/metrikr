@@ -1,84 +1,137 @@
 # JointForces fitness report
 
-<script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+<script>Chart.register(window['chartjs-plugin-autocolors']);</script>
 
 ## Cognitive Complexity
 
-<div><svg class="cognitive_complexity-chart"></svg></div>
+<div><p>Super description for Cognitive Complexity</p>
+<canvas id="cognitive_complexity-chart"></canvas>
 <script>
-  new chartXkcd.Line(document.querySelector('.cognitive_complexity-chart'), {
-      title: 'Cognitive Complexity',
-      data: {
-        labels: ['pi-2201-sample'],
-        datasets: [
-          {
+  new Chart(document.getElementById('cognitive_complexity-chart'), {
+    type: 'line',
+    options: {
+      title: {
+        display: true,
+        text: 'Cognitive Complexity'
+      },
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }, 
+    data: {
+      labels: ['pi-2201-sample'],
+      datasets: [
+        {
+  data: [111],
   label: 'Audit module',
-  data: [111]
+  fill: false
 },
 {
+  data: [107],
   label: 'Message history module',
-  data: [107]
+  fill: false
 },
 {
+  data: [157],
   label: 'Trending module',
-  data: [157]
+  fill: false
 },
 
-        ]
-      }
+      ]
+    }
   });
 </script>
+</div>
+
 
 ## Cyclomatic Complexity
 
-<div><svg class="complexity-chart"></svg></div>
+<div><p>Super description for Cyclomatic Complexity</p>
+<canvas id="complexity-chart"></canvas>
 <script>
-  new chartXkcd.Line(document.querySelector('.complexity-chart'), {
-      title: 'Cyclomatic Complexity',
-      data: {
-        labels: ['pi-2201-sample'],
-        datasets: [
-          {
+  new Chart(document.getElementById('complexity-chart'), {
+    type: 'line',
+    options: {
+      title: {
+        display: true,
+        text: 'Cyclomatic Complexity'
+      },
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }, 
+    data: {
+      labels: ['pi-2201-sample'],
+      datasets: [
+        {
+  data: [360],
   label: 'Audit module',
-  data: [360]
+  fill: false
 },
 {
+  data: [434],
   label: 'Message history module',
-  data: [434]
+  fill: false
 },
 {
+  data: [640],
   label: 'Trending module',
-  data: [640]
+  fill: false
 },
 
-        ]
-      }
+      ]
+    }
   });
 </script>
+</div>
+
 
 ## Overall Coverage
 
-<div><svg class="coverage-chart"></svg></div>
+<div><p>Super description for Overall Coverage</p>
+<canvas id="coverage-chart"></canvas>
 <script>
-  new chartXkcd.Line(document.querySelector('.coverage-chart'), {
-      title: 'Overall Coverage',
-      data: {
-        labels: ['pi-2201-sample'],
-        datasets: [
-          {
+  new Chart(document.getElementById('coverage-chart'), {
+    type: 'line',
+    options: {
+      title: {
+        display: true,
+        text: 'Overall Coverage'
+      },
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }, 
+    data: {
+      labels: ['pi-2201-sample'],
+      datasets: [
+        {
+  data: [65.9],
   label: 'Audit module',
-  data: [65.9]
+  fill: false
 },
 {
+  data: [95.1],
   label: 'Message history module',
-  data: [95.1]
+  fill: false
 },
 {
+  data: [78.2],
   label: 'Trending module',
-  data: [78.2]
+  fill: false
 },
 
-        ]
-      }
+      ]
+    }
   });
 </script>
+</div>
+
