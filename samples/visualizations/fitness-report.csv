@@ -1,0 +1,10 @@
+Run;ProjectId;ProjectName;MetricId;MetricName;Value
+pi-2201-sample;joint-forces-trending;Trending module;cognitive_complexity;Cognitive Complexity;157
+pi-2201-sample;joint-forces-trending;Trending module;complexity;Cyclomatic Complexity;640
+pi-2201-sample;joint-forces-trending;Trending module;coverage;Overall Coverage;78.2
+pi-2201-sample;opportunity-audit;Audit module;cognitive_complexity;Cognitive Complexity;111
+pi-2201-sample;opportunity-audit;Audit module;complexity;Cyclomatic Complexity;360
+pi-2201-sample;opportunity-audit;Audit module;coverage;Overall Coverage;65.9
+pi-2201-sample;opportunity-message-history;Message history module;cognitive_complexity;Cognitive Complexity;107
+pi-2201-sample;opportunity-message-history;Message history module;coverage;Overall Coverage;95.1
+pi-2201-sample;opportunity-message-history;Message history module;complexity;Cyclomatic Complexity;434

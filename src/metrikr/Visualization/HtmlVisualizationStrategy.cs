@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-public class HtmlvisualizationStrategy : IVisualizationStrategy
+public class HtmlVisualizationStrategy : IVisualizationStrategy
 {
   public const string KEY = "html";
 

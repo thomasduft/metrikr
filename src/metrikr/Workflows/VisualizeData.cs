@@ -16,8 +16,9 @@ public class VisualizeDataWorkflow
 
   private readonly Dictionary<string, IVisualizationStrategy> _strategies = new()
   {
-    { HtmlvisualizationStrategy.KEY, new HtmlvisualizationStrategy() },
-    { MarkdownvisualizationStrategy.KEY, new MarkdownvisualizationStrategy() }
+    { HtmlVisualizationStrategy.KEY, new HtmlVisualizationStrategy() },
+    { MarkdownvisualizationStrategy.KEY, new MarkdownvisualizationStrategy() },
+    { CsvVisualizationStrategy.KEY, new CsvVisualizationStrategy() }
   };
 
   public VisualizeDataWorkflow(MetrikRConfiguration config)
