@@ -20,7 +20,7 @@ public class HtmlVisualizationStrategy : IVisualizationStrategy
 <html lang=""en"">
 <head>
   <meta charset=""utf-8"">
-  <title>JointForces fitness report</title>
+  <title>Metrics</title>
   <script src=""https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js""></script>
   <script src=""https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors""></script>
   <style>
@@ -75,7 +75,7 @@ public class HtmlVisualizationStrategy : IVisualizationStrategy
           position: 'bottom'
         }}
       }}
-    }}, 
+    }},
     data: {{
       labels: [{labels}],
       datasets: [

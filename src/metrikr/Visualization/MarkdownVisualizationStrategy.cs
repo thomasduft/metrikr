@@ -14,8 +14,6 @@ public class MarkdownvisualizationStrategy : IVisualizationStrategy
   public void Visualize(VisualizationParam param)
   {
     var builder = new StringBuilder();
-    builder.AppendLine("# JointForces fitness report");
-    builder.AppendLine();
     builder.AppendLine(@"<script src=""https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js""></script>");
     builder.AppendLine(@"<script src=""https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors""></script>");
     builder.AppendLine(@"<script>Chart.register(window['chartjs-plugin-autocolors']);</script>");
@@ -58,7 +56,7 @@ public class MarkdownvisualizationStrategy : IVisualizationStrategy
           position: 'bottom'
         }}
       }}
-    }}, 
+    }},
     data: {{
       labels: [{labels}],
       datasets: [
