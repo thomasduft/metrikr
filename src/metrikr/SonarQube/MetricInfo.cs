@@ -28,4 +28,3 @@ public class MetricInfo
   public int P { get; set; }
   public int Ps { get; set; }
 }
-

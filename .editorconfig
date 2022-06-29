@@ -185,5 +185,9 @@ csharp_space_between_square_brackets = false:warning
 csharp_preserve_single_line_blocks = true:warning
 csharp_preserve_single_line_statements = false:warning
 
+# 'using' directive preferences
+# see https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0065
+csharp_using_directive_placement = outside_namespace:warning
+
 # Analyzers
 dotnet_diagnostic.MA0048.severity = none  # MA0048: File name must match type name

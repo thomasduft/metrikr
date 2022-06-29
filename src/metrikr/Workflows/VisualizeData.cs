@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using metrikr.Configuration;
@@ -14,13 +13,6 @@ public class VisualizeDataWorkflow
 {
   private readonly MetrikRConfiguration _config;
 
-  private readonly Dictionary<string, IVisualizationStrategy> _strategies = new()
-  {
-    { HtmlVisualizationStrategy.KEY, new HtmlVisualizationStrategy() },
-    { MarkdownvisualizationStrategy.KEY, new MarkdownvisualizationStrategy() },
-    { CsvVisualizationStrategy.KEY, new CsvVisualizationStrategy() }
-  };
-
   public VisualizeDataWorkflow(MetrikRConfiguration config)
   {
     _config = config;
@@ -28,10 +20,11 @@ public class VisualizeDataWorkflow
 
   public void Visualize(string strategy)
   {
-    if (!_strategies.ContainsKey(strategy))
+    var strategies = VisualizationStrategyProvider.VisualizationStrategies;
+    if (!strategies.ContainsKey(strategy))
     {
       WriteLineError($"Visualization strategy '{strategy}' is not supported!");
-      WriteYellow($"Supported strategies: {string.Join(", ", _strategies.Keys)}");
+      WriteYellow($"Supported strategies: {string.Join(", ", strategies.Keys)}");
       WriteLine();
       return;
     }
@@ -47,7 +40,7 @@ public class VisualizeDataWorkflow
     }
 
     // 3. locate the strategy and pass in the runs
-    _strategies[strategy].Visualize(new(
+    strategies[strategy].Visualize(new(
       _config.Projects,
       _config.Metrics,
       runs,

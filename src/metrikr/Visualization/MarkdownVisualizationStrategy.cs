@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-public class MarkdownvisualizationStrategy : IVisualizationStrategy
+public class MarkdownVisualizationStrategy : IVisualizationStrategy
 {
   public const string KEY = "md";
 
