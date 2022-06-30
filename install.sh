@@ -25,7 +25,7 @@ echo Restore solution
 dotnet restore src/metrikr
 
 echo ----
-if [ $2 = "r" ];
+if [ $2 = "i" ];
 then
   echo Packaging solution with Version = $1
   dotnet pack src/metrikr -c Release -p:PackageVersion=$1 -p:Version=$1 -o ./dist/nupkgs/
