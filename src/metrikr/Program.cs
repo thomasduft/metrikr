@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using metrikr.Configuration;
 using metrikr.Extensions;
-using metrikr.Visualization;
 using metrikr.Workflows;
 using Microsoft.Extensions.CommandLineUtils;
 using static metrikr.Utils.ConsoleHelper;
