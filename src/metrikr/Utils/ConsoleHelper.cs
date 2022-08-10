@@ -1,6 +1,6 @@
 using System;
 
-namespace metrikr.Utils;
+namespace tomware.MetrikR.Utils;
 
 public static class ConsoleHelper
 {

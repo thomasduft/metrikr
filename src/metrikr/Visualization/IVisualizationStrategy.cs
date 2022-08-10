@@ -1,4 +1,4 @@
-namespace metrikr.Visualization;
+namespace tomware.MetrikR.Visualization;
 
 public interface IVisualizationStrategy
 {

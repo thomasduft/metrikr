@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace metrikr.Extensions;
+namespace tomware.MetrikR.Extensions;
 
 public static class JsonExtensions
 {

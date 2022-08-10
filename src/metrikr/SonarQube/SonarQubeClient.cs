@@ -3,9 +3,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using metrikr.Extensions;
+using tomware.MetrikR.Extensions;
 
-namespace metrikr.SonarQube;
+namespace tomware.MetrikR.SonarQube;
 
 public class SonarQubeClient
 {

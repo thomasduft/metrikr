@@ -1,4 +1,4 @@
-namespace metrikr.SonarQube;
+namespace tomware.MetrikR.SonarQube;
 
 public class Measure
 {

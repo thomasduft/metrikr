@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.IO;
-using metrikr.Configuration;
-using metrikr.Domain;
-using metrikr.Extensions;
-using metrikr.Visualization;
+using tomware.MetrikR.Configuration;
+using tomware.MetrikR.Domain;
+using tomware.MetrikR.Extensions;
+using tomware.MetrikR.Visualization;
 
-namespace metrikr.Workflows;
+namespace tomware.MetrikR.Workflows;
 
-using static metrikr.Utils.ConsoleHelper;
+using static tomware.MetrikR.Utils.ConsoleHelper;
 
 public class VisualizeDataWorkflow
 {

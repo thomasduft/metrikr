@@ -1,4 +1,4 @@
-namespace metrikr.Domain;
+namespace tomware.MetrikR.Domain;
 
 public class Project
 {

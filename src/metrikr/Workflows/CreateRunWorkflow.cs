@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using metrikr.Configuration;
-using metrikr.Domain;
-using metrikr.Extensions;
-using metrikr.SonarQube;
+using tomware.MetrikR.Configuration;
+using tomware.MetrikR.Domain;
+using tomware.MetrikR.Extensions;
+using tomware.MetrikR.SonarQube;
 
-namespace metrikr.Workflows;
+namespace tomware.MetrikR.Workflows;
 
 public class CreateRunWorkflow
 {

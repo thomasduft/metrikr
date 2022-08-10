@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>metrikr</AssemblyName>
-    <RootNamespace>metrikr</RootNamespace>
+    <AssemblyName>tomware.MetrikR</AssemblyName>
+    <RootNamespace>tomware.MetrikR</RootNamespace>
 
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>

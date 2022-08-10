@@ -1,12 +1,13 @@
 using System;
 using System.IO;
-using metrikr.Configuration;
-using metrikr.Extensions;
-using metrikr.Workflows;
+using tomware.MetrikR.Configuration;
+using tomware.MetrikR.Extensions;
+using tomware.MetrikR.Workflows;
 using Microsoft.Extensions.CommandLineUtils;
-using static metrikr.Utils.ConsoleHelper;
 
-namespace metrikr;
+using static tomware.MetrikR.Utils.ConsoleHelper;
+
+namespace tomware.MetrikR;
 
 class Program
 {

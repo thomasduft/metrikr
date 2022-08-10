@@ -18,7 +18,7 @@ echo Starting building version $1
 echo ----
 echo Cleaning up
 rm -r ./dist
-dotnet tool uninstall -g metrikr
+dotnet tool uninstall -g tomware.MetrikR
 
 echo ----
 echo Restore solution
@@ -43,7 +43,7 @@ fi
 
 echo ----
 echo Installing metrikr globally with Version = $1
-dotnet tool install --global --add-source ./dist/nupkgs/ metrikr
+dotnet tool install --global --add-source ./dist/nupkgs/ tomware.MetrikR
 
 echo ----
 echo Done

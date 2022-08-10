@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace metrikr.Visualization;
+namespace tomware.MetrikR.Visualization;
 
 public static class VisualizationStrategyProvider
 {

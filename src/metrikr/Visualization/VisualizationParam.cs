@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using metrikr.Domain;
+using tomware.MetrikR.Domain;
 
-namespace metrikr.Visualization;
+namespace tomware.MetrikR.Visualization;
 
 public record VisualizationParam(
   IEnumerable<Project> Projects,

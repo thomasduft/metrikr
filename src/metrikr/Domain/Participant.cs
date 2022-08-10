@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace metrikr.Domain;
+namespace tomware.MetrikR.Domain;
 
 public class Participant : IComparable<Participant>
 {

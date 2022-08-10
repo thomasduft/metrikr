@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace metrikr.Visualization;
+namespace tomware.MetrikR.Visualization;
 
 public class AllVisualizationStrategy : IVisualizationStrategy
 {

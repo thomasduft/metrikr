@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace metrikr.SonarQube;
+namespace tomware.MetrikR.SonarQube;
 
 public class Paging
 {

@@ -1,4 +1,4 @@
-# metrikr
+# MetrikR
 
 A tool to visualize your [SonarQube](https://www.sonarqube.org/) metrics over time.
 
@@ -8,7 +8,7 @@ Prerequisites:
 
 - SonarQube api key available
 - metrikr installed as a global dotnet tool
-- [configuration](#configuration-configjson) file prepared 
+- [configuration](#configuration-configjson) file prepared
 
 ### 1. Creating a run
 

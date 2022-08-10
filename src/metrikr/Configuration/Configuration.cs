@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using metrikr.Domain;
+using tomware.MetrikR.Domain;
 
-namespace metrikr.Configuration;
+namespace tomware.MetrikR.Configuration;
 
 public class MetrikRConfiguration
 {
