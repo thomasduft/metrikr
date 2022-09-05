@@ -27,7 +27,6 @@ public class MarkdownVisualizationStrategy : IVisualizationStrategy
       builder.AppendLine(@$"<div><p>{metric?.Description}</p>");
       builder.AppendLine(@$"<canvas id=""{metric.Id}-chart""></canvas>");
 
-
       var title = $"'{metric.Name}'";
       var labels = string.Join(',', param.Runs.Select(r => $"'{r.Name}'"));
 
@@ -86,10 +85,17 @@ public class MarkdownVisualizationStrategy : IVisualizationStrategy
     foreach (var run in runs.OrderBy(_ => _.Date))
     {
       var projects = run.Participants.Where(p => p.ProjectId == projectId);
-      foreach (var project in projects)
+      if (projects.Any())
       {
-        var metrics = project.Results.Where(r => r.MetricId == metricId);
-        results.AddRange(metrics.Select(_ => _.Value.ToString()));
+        foreach (var project in projects)
+        {
+          var metrics = project.Results.Where(r => r.MetricId == metricId);
+          results.AddRange(metrics.Select(_ => _.Value.ToString()));
+        }
+      }
+      else
+      {
+        results.Add("null");
       }
     }
 
