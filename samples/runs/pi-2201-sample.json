@@ -10,12 +10,12 @@
           "value": "76"
         },
         {
-          "metricId": "coverage",
-          "value": "71.7"
-        },
-        {
           "metricId": "complexity",
           "value": "511"
+        },
+        {
+          "metricId": "coverage",
+          "value": "71.7"
         }
       ]
     }

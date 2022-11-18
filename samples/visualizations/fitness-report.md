@@ -24,12 +24,12 @@
       labels: ['pi-2201-sample'],
       datasets: [
         {
-  data: [],
+  data: [null],
   label: 'Audit module',
   fill: false
 },
 {
-  data: [],
+  data: [null],
   label: 'Message history module',
   fill: false
 },
@@ -68,12 +68,12 @@
       labels: ['pi-2201-sample'],
       datasets: [
         {
-  data: [],
+  data: [null],
   label: 'Audit module',
   fill: false
 },
 {
-  data: [],
+  data: [null],
   label: 'Message history module',
   fill: false
 },
@@ -112,12 +112,12 @@
       labels: ['pi-2201-sample'],
       datasets: [
         {
-  data: [],
+  data: [null],
   label: 'Audit module',
   fill: false
 },
 {
-  data: [],
+  data: [null],
   label: 'Message history module',
   fill: false
 },
