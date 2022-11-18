@@ -9,7 +9,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-metrikr",
-      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net6.0/metrikr.dll",
+      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net7.0/tomware.MetrikR.dll",
       "args": [
         "new-run",
         "pi-2201-sample",
@@ -25,7 +25,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-metrikr",
-      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net6.0/metrikr.dll",
+      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net7.0/tomware.MetrikR.dll",
       "args": [
         "visualize",
         "config.json"
@@ -33,24 +33,6 @@
       "cwd": "${workspaceFolder}/src/metrikr",
       "console": "internalConsole",
       "stopAtEntry": false
-    },
-    {
-      "name": "sln-creator",
-      "type": "coreclr",
-      "request": "launch",
-      "preLaunchTask": "build-sln",
-      "program": "${workspaceFolder}/src/sln/bin/Debug/net6.0/sln.dll",
-      "args": [
-        "create-sln",
-        "modules",
-        "-i",
-        "C:\\work\\joint-forces\\joint-forces\\backend\\modules",
-        "-o",
-        "C:\\work\\joint-forces\\joint-forces\\backend"
-      ],
-      "cwd": "${workspaceFolder}/src/sln",
-      "console": "internalConsole",
-      "stopAtEntry": false
-    },
+    }
   ]
 }

@@ -1,5 +1,3 @@
-# JointForces fitness report
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
 <script>Chart.register(window['chartjs-plugin-autocolors']);</script>
@@ -21,22 +19,22 @@
           position: 'bottom'
         }
       }
-    }, 
+    },
     data: {
       labels: ['pi-2201-sample'],
       datasets: [
         {
-  data: [111],
+  data: [],
   label: 'Audit module',
   fill: false
 },
 {
-  data: [107],
+  data: [],
   label: 'Message history module',
   fill: false
 },
 {
-  data: [157],
+  data: [76],
   label: 'Trending module',
   fill: false
 },
@@ -65,22 +63,22 @@
           position: 'bottom'
         }
       }
-    }, 
+    },
     data: {
       labels: ['pi-2201-sample'],
       datasets: [
         {
-  data: [360],
+  data: [],
   label: 'Audit module',
   fill: false
 },
 {
-  data: [434],
+  data: [],
   label: 'Message history module',
   fill: false
 },
 {
-  data: [640],
+  data: [511],
   label: 'Trending module',
   fill: false
 },
@@ -109,22 +107,22 @@
           position: 'bottom'
         }
       }
-    }, 
+    },
     data: {
       labels: ['pi-2201-sample'],
       datasets: [
         {
-  data: [65.9],
+  data: [],
   label: 'Audit module',
   fill: false
 },
 {
-  data: [95.1],
+  data: [],
   label: 'Message history module',
   fill: false
 },
 {
-  data: [78.2],
+  data: [71.7],
   label: 'Trending module',
   fill: false
 },

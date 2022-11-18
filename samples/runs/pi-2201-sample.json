@@ -1,55 +1,21 @@
 {
   "name": "pi-2201-sample",
-  "date": "2022-02-17T00:00:00+01:00",
+  "date": "2022-11-18T00:00:00+00:00",
   "participants": [
     {
       "projectId": "joint-forces-trending",
       "results": [
         {
           "metricId": "cognitive_complexity",
-          "value": "157"
-        },
-        {
-          "metricId": "complexity",
-          "value": "640"
+          "value": "76"
         },
         {
           "metricId": "coverage",
-          "value": "78.2"
-        }
-      ]
-    },
-    {
-      "projectId": "opportunity-audit",
-      "results": [
-        {
-          "metricId": "cognitive_complexity",
-          "value": "111"
+          "value": "71.7"
         },
         {
           "metricId": "complexity",
-          "value": "360"
-        },
-        {
-          "metricId": "coverage",
-          "value": "65.9"
-        }
-      ]
-    },
-    {
-      "projectId": "opportunity-message-history",
-      "results": [
-        {
-          "metricId": "cognitive_complexity",
-          "value": "107"
-        },
-        {
-          "metricId": "coverage",
-          "value": "95.1"
-        },
-        {
-          "metricId": "complexity",
-          "value": "434"
+          "value": "511"
         }
       ]
     }
