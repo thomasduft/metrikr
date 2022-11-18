@@ -62,8 +62,9 @@ public class CreateRunWorkflow
       var metricsForProject = _client.GetMetricsForProject(project.Key, metricIdsForProject)
                                      .GetAwaiter()
                                      .GetResult();
-
-      foreach (var measure in metricsForProject.Component.Measures)
+      // sort measures alphabetically
+      var measures = metricsForProject.Component.Measures.OrderBy(m => m.Metric);
+      foreach (var measure in measures)
       {
         var result = new Result
         {
