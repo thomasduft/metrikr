@@ -117,7 +117,14 @@ public class HtmlVisualizationStrategy : IVisualizationStrategy
         foreach (var project in projects)
         {
           var metrics = project.Results.Where(r => r.MetricId == metricId);
-          results.AddRange(metrics.Select(_ => _.Value.ToString()));
+          if (metrics.Any())
+          {
+            results.AddRange(metrics.Select(_ => _.Value.ToString()));
+          }
+          else
+          {
+            results.Add("null");
+          }
         }
       }
       else
