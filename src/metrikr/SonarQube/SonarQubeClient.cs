@@ -26,9 +26,7 @@ public class SonarQubeClient
     response.EnsureSuccessStatusCode();
 
     var json = await response.Content.ReadAsStringAsync();
-    var info = json.FromJson<ProjectInfo>();
-
-    return await Task.FromResult(info);
+    return json.FromJson<ProjectInfo>();
   }
 
   public async Task<MetricInfo> GetMetrics()
@@ -38,11 +36,19 @@ public class SonarQubeClient
     response.EnsureSuccessStatusCode();
 
     var json = await response.Content.ReadAsStringAsync();
-    var info = json.FromJson<MetricInfo>();
-
-    return await Task.FromResult(info);
+    return json.FromJson<MetricInfo>();
   }
 
+  public async Task<string> GetProjectBadgeToken(string projectId)
+  {
+    var tokenResponse = await _client.GetAsync(CreateUri($"api/project_badges/token?project={projectId}"));
+    tokenResponse.EnsureSuccessStatusCode();
+
+    var json = await tokenResponse.Content.ReadAsStringAsync();
+    var token = json.FromJson<SonarQubeToken>();
+
+    return token.Token;
+  }
 
   public async Task<MeasureInfo> GetMetricsForProject(string projectId, string metricIds)
   {
@@ -76,4 +82,6 @@ public class SonarQubeClient
   {
     return $"{_domain}/{endpoint}";
   }
+
+  private record SonarQubeToken(string Token);
 }

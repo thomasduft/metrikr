@@ -5,16 +5,9 @@
   "VisualizationStrategy": "all",
   "Projects": [
     {
-      "Id": "opportunity-audit",
-      "Name": "Audit module"
-    },
-    {
-      "Id": "opportunity-message-history",
-      "Name": "Message history module"
-    },
-    {
-      "Id": "joint-forces-trending",
-      "Name": "Trending module"
+      "Id": "joint-forces-audit",
+      "Name": "Audit module",
+      "Tag": "Backend"
     }
   ],
   "Metrics": [

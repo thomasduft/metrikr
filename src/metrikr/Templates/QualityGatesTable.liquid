@@ -1,0 +1,12 @@
+# Module Quality Gates
+
+This page is a collection of quality gate badges of SonarQube.
+{% for tag in Tags %}
+## {{ tag.Name }} Quality Gates
+
+| Module    | Quality Gate |
+| --------- | ------------ |
+{% for entry in tag.Entries -%}
+| {{ entry.ProjectName }} | [![Quality Gate Status]({{ entry.SonarQubeDomain }}/api/project_badges/measure?project={{ entry.ProjectId }}&metric=alert_status&token={{ entry.BadgeToken }})]({{ entry.SonarQubeDomain }}/dashboard?id={{ entry.ProjectId }}) |
+{% endfor -%}
+{% endfor -%}

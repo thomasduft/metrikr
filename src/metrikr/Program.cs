@@ -6,6 +6,7 @@ using tomware.MetrikR.Workflows;
 using Microsoft.Extensions.CommandLineUtils;
 
 using static tomware.MetrikR.Utils.ConsoleHelper;
+using tomware.MetrikR.QualityGates;
 
 namespace tomware.MetrikR;
 
@@ -76,6 +77,34 @@ class Program
 
         VisualizeDataWorkflow visualizer = new(config);
         visualizer.Visualize(config.VisualizationStrategy);
+
+        return 0;
+      });
+    });
+
+    app.Command("quality-gates", (command) =>
+    {
+      command.Description = "Creates a quality gate markdown overview page based on the configured projects (i.e. quality-gates config.json).";
+      var configArgument = command.Argument("config", "Configuration file"); command.HelpOption(HelpOption);
+      var apiKeyArgument = command.Argument("api-key", "API-Key for SonarQube");
+      command.OnExecute(() =>
+      {
+        var config = GetConfiguration(configArgument.Value);
+        if (config == null)
+        {
+          WriteLineError("Please provide a valid configuration!");
+          return 1;
+        }
+
+        var apiKey = apiKeyArgument.Value;
+        if (string.IsNullOrEmpty(apiKey))
+        {
+          WriteLineError("Please provide a valid API-Key for SonarQube!");
+          return 1;
+        }
+
+        QualityGatesCreator creator = new(config, apiKey);
+        creator.Create();
 
         return 0;
       });

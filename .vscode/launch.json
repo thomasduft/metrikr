@@ -33,6 +33,21 @@
       "cwd": "${workspaceFolder}/src/metrikr",
       "console": "internalConsole",
       "stopAtEntry": false
+    },
+    {
+      "name": "metrikr:quality-gates",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-metrikr",
+      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net7.0/tomware.MetrikR.dll",
+      "args": [
+        "quality-gates",
+        "config.json",
+        ""
+      ],
+      "cwd": "${workspaceFolder}/src/metrikr",
+      "console": "internalConsole",
+      "stopAtEntry": false
     }
   ]
 }
