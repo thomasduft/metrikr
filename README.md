@@ -35,8 +35,9 @@ Options:
   -?|-h|--help  Show help information
 
 Commands:
-  new-run    Creates a new run (i.e. new-run "pi-2201" config.json <my-sonarqube-apikey>).
-  visualize  Visualizes runs based on a strategy (i.e. visualize config.json).
+  new-run        Creates a new run (i.e. new-run "pi-2201" config.json <my-sonarqube-apikey>).
+  quality-gates  Creates a quality gate markdown overview page based on the configured projects (i.e. quality-gates config.json).
+  visualize      Visualizes runs based on a strategy (i.e. visualize config.json).
 
 Use "metrikr [command] --help" for more information about a command.
 ```
