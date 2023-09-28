@@ -28,7 +28,7 @@ public class QualityGatesCreator
       var badgeToken = _client.GetProjectBadgeToken(project.Id)
         .GetAwaiter()
         .GetResult();
-      qualityGates.Add(new QualityGate(project.Tag, project.Id, project.Name, _config.SonarQubeDomain, badgeToken));
+      qualityGates.Add(new QualityGate(project.Tag, project.Id, project.Name, project.Description, _config.SonarQubeDomain, badgeToken));
     }
 
     // Create Quality Gate markdown table
@@ -74,4 +74,11 @@ public record Tag
   public List<QualityGate> Entries { get; set; } = new();
 }
 
-public record QualityGate(string Tag, string ProjectId, string ProjectName, string SonarQubeDomain, string BadgeToken);
+public record QualityGate(
+  string Tag,
+  string ProjectId,
+  string ProjectName,
+  string ProjectDescription,
+  string SonarQubeDomain,
+  string BadgeToken
+);
