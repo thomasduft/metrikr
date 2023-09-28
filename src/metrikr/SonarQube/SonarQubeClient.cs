@@ -29,6 +29,16 @@ public class SonarQubeClient
     return json.FromJson<ProjectInfo>();
   }
 
+  public async Task<ProjectInfo> CreateProject()
+  {
+    // PageSize set to max = 500 items
+    var response = await _client.PostAsync(CreateUri("api/projects/create"), null);
+    response.EnsureSuccessStatusCode();
+
+    var json = await response.Content.ReadAsStringAsync();
+    return json.FromJson<ProjectInfo>();
+  }
+
   public async Task<MetricInfo> GetMetrics()
   {
     // PageSize set to max = 500 items
@@ -64,8 +74,6 @@ public class SonarQubeClient
 
   private static HttpClient CreateClient(string apiKey)
   {
-    // TODO: review/rework and test
-
     var client = new HttpClient();
     var username = apiKey;
     var password = string.Empty;

@@ -34,7 +34,8 @@ APIs:
       - lists all metrics
 
   4. Measures
-    - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-trending&metricKeys=coverage,complexity,violations
+    - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-trending&metricKeys=ncloc,cognitive_complexity,coverage,complexity,violations
+    - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-variables&metricKeys=ncloc,cognitive_complexity,coverage,complexity,violations
       - lists measures based on a project and wanted metrics (metricKeys)
 
 ----------------------------------------------------------------------------------------------------
