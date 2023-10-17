@@ -3,6 +3,7 @@
   "RunsDirectory": "../../samples/runs",
   "VisualizationsDirectory": "../../samples/visualizations",
   "VisualizationStrategy": "all",
+  "Title": "Suite",
   "Projects": [
     {
       "Id": "joint-forces-audit",

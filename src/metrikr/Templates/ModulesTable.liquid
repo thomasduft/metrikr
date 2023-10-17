@@ -1,10 +1,10 @@
-# Module Quality Gates
+# {{ Title }} Modules
 
-This page is a collection of quality gate badges of SonarQube.
+This page is a collection of all available {{ Title }} modules.
 {% for tag in Tags %}
-## {{ tag.Name }} Quality Gates
+## {{ tag.Name }} Modules
 
-| Module    | Description  | Quality Gate |
+| Module    | Description  | SonarQube |
 | --------- | ------------ | ------------ |
 {% for entry in tag.Entries -%}
 | {{ entry.ProjectName }} | {% if entry.ProjectDescription != "" %}{{ entry.ProjectDescription }}{% else %}-{% endif %} | [![Quality Gate Status]({{ entry.SonarQubeDomain }}/api/project_badges/measure?project={{ entry.ProjectId }}&metric=alert_status&token={{ entry.BadgeToken }})]({{ entry.SonarQubeDomain }}/dashboard?id={{ entry.ProjectId }}) |

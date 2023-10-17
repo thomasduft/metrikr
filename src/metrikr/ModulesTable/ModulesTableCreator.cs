@@ -8,12 +8,12 @@ using tomware.MetrikR.Utils;
 
 namespace tomware.MetrikR.QualityGates;
 
-public class QualityGatesCreator
+public class ModulesTableCreator
 {
   private readonly MetrikRConfiguration _config;
   private readonly SonarQubeClient _client;
 
-  public QualityGatesCreator(MetrikRConfiguration config, string apiKey)
+  public ModulesTableCreator(MetrikRConfiguration config, string apiKey)
   {
     _config = config;
     _client = new(config.SonarQubeDomain, apiKey);
@@ -32,7 +32,7 @@ public class QualityGatesCreator
     }
 
     // Create Quality Gate markdown table
-    var source = ResourceLoader.GetResource("QualityGatesTable");
+    var source = ResourceLoader.GetResource("ModulesTable");
     var template = new FluidParser().Parse(source);
 
     var options = new TemplateOptions();
@@ -40,17 +40,21 @@ public class QualityGatesCreator
     options.MemberAccessStrategy.Register<Tag>();
     options.MemberAccessStrategy.Register<QualityGate>();
 
-    QualityGatesTableModel model = CreateQualityGatesTableModel(qualityGates);
+    QualityGatesTableModel model = CreateQualityGatesTableModel(_config.Title, qualityGates);
     var content = template.Render(new TemplateContext(model, options));
 
-    var output = $"Module-Quality-Gates.md";
+    var output = $"Modules-Table.md";
     File.WriteAllText(output, content);
   }
 
-  private QualityGatesTableModel CreateQualityGatesTableModel(List<QualityGate> qualityGates)
+  private QualityGatesTableModel CreateQualityGatesTableModel(
+    string title,
+    List<QualityGate> qualityGates
+  )
   {
     return new QualityGatesTableModel
     {
+      Title = title,
       Tags = qualityGates.OrderBy(_ => _.Tag)
         .GroupBy(_ => _.Tag)
         .Select(_ => new Tag
@@ -65,6 +69,7 @@ public class QualityGatesCreator
 
 public record QualityGatesTableModel
 {
+  public string Title { get; set; }
   public List<Tag> Tags { get; set; } = new();
 }
 

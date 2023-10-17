@@ -37,4 +37,6 @@ public class MetrikRConfiguration
   /// </summary>
   /// <typeparam name="string"></typeparam>
   public List<Metric> Metrics { get; set; } = new List<Metric>();
+
+  public string Title { get; set; } = "No Title";
 }

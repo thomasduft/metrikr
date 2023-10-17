@@ -82,9 +82,9 @@ class Program
       });
     });
 
-    app.Command("quality-gates", (command) =>
+    app.Command("module-list", (command) =>
     {
-      command.Description = "Creates a quality gate markdown overview page based on the configured projects (i.e. quality-gates config.json).";
+      command.Description = "Creates a markdown overview page/table of the configured projects (i.e. module-list config.json).";
       var configArgument = command.Argument("config", "Configuration file"); command.HelpOption(HelpOption);
       var apiKeyArgument = command.Argument("api-key", "API-Key for SonarQube");
       command.OnExecute(() =>
@@ -103,7 +103,7 @@ class Program
           return 1;
         }
 
-        QualityGatesCreator creator = new(config, apiKey);
+        ModulesTableCreator creator = new(config, apiKey);
         creator.Create();
 
         return 0;
