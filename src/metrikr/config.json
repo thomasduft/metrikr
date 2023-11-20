@@ -6,10 +6,20 @@
   "Title": "Suite",
   "Projects": [
     {
-      "Id": "joint-forces-audit",
+      "Id": "audit",
       "Name": "Audit module",
       "Description": "Audit module description",
-      "Tag": "Backend"
+      "Link": "https://domain/audit",
+      "Categories": [
+        {
+          "Type": "backend",
+          "ProjectId": "joint-forces-audit"
+        },
+        {
+          "Type": "frontend",
+          "ProjectId": "joint-forces-audit-fe"
+        }
+      ]
     }
   ],
   "Metrics": [

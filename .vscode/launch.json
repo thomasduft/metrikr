@@ -35,13 +35,13 @@
       "stopAtEntry": false
     },
     {
-      "name": "metrikr:quality-gates",
+      "name": "metrikr:module-list",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-metrikr",
       "program": "${workspaceFolder}/src/metrikr/bin/Debug/net7.0/tomware.MetrikR.dll",
       "args": [
-        "quality-gates",
+        "module-list",
         "config.json",
         ""
       ],

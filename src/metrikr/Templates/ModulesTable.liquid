@@ -1,12 +1,11 @@
-# {{ Title }} Modules
+# JointForces Modules
 
-This page is a collection of all available {{ Title }} modules.
-{% for tag in Tags %}
-## {{ tag.Name }} Modules
+This page is a collection of all available JointForces modules.
 
-| Module    | Description  | SonarQube |
-| --------- | ------------ | ------------ |
-{% for entry in tag.Entries -%}
-| {{ entry.ProjectName }} | {% if entry.ProjectDescription != "" %}{{ entry.ProjectDescription }}{% else %}-{% endif %} | [![Quality Gate Status]({{ entry.SonarQubeDomain }}/api/project_badges/measure?project={{ entry.ProjectId }}&metric=alert_status&token={{ entry.BadgeToken }})]({{ entry.SonarQubeDomain }}/dashboard?id={{ entry.ProjectId }}) |
-{% endfor -%}
+> Please note: Each module follows the same Software Module Documentation structure which is described in the [Software Module Documentation](https://jointforces.docs.alm.buhlergroup.com/Development-Process/Software-Documentation-Process/#module-documentation) page.
+
+| Module    | Description  | SonarQube FE | SonarQube BE |
+| --------- | ------------ | ------------ | ------------ |
+{% for entry in QualityGates -%}
+| {% if entry.Link != "" %}[{{ entry.ProjectName }}]({{ entry.Link }}){% else %}{{ entry.ProjectName }}{% endif %} | {% if entry.ProjectDescription != "" %}{{ entry.ProjectDescription }}{% else %}-{% endif %} | {% if entry.ProjectIdFE != "" %}[![Quality Gate Status]({{ entry.SonarQubeDomain }}/api/project_badges/measure?project={{ entry.ProjectIdFE }}&metric=alert_status&token={{ entry.BadgeTokenFE }})]({{ entry.SonarQubeDomain }}/dashboard?id={{ entry.ProjectIdFE }}){% endif %} | {% if entry.ProjectIdBE != "" %}[![Quality Gate Status]({{ entry.SonarQubeDomain }}/api/project_badges/measure?project={{ entry.ProjectIdBE }}&metric=alert_status&token={{ entry.BadgeTokenBE }})]({{ entry.SonarQubeDomain }}/dashboard?id={{ entry.ProjectIdBE }}){% endif %} |
 {% endfor -%}

@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Fluid;
 using tomware.MetrikR.Configuration;
+using tomware.MetrikR.Domain;
 using tomware.MetrikR.SonarQube;
 using tomware.MetrikR.Utils;
 
@@ -25,10 +26,22 @@ public class ModulesTableCreator
     var qualityGates = new List<QualityGate>(); ;
     foreach (var project in _config.Projects)
     {
-      var badgeToken = _client.GetProjectBadgeToken(project.Id)
-        .GetAwaiter()
-        .GetResult();
-      qualityGates.Add(new QualityGate(project.Tag, project.Id, project.Name, project.Description, _config.SonarQubeDomain, badgeToken));
+      ConsoleHelper.WriteLine($"Gathering information for project {project.Id}");
+
+      var (projectIdFE, badgeTokenFE) = GetBadgeToken(project.Categories, CategoryType.frontend);
+      var (projectIdBE, badgeTokenBE) = GetBadgeToken(project.Categories, CategoryType.backend);
+
+      qualityGates.Add(new QualityGate(
+        project.Id,
+        project.Name,
+        project.Description,
+        project.Link,
+        _config.SonarQubeDomain,
+        badgeTokenFE,
+        projectIdFE,
+        badgeTokenBE,
+        projectIdBE
+      ));
     }
 
     // Create Quality Gate markdown table
@@ -36,54 +49,46 @@ public class ModulesTableCreator
     var template = new FluidParser().Parse(source);
 
     var options = new TemplateOptions();
-    options.MemberAccessStrategy.Register<QualityGatesTableModel>();
-    options.MemberAccessStrategy.Register<Tag>();
     options.MemberAccessStrategy.Register<QualityGate>();
 
-    QualityGatesTableModel model = CreateQualityGatesTableModel(_config.Title, qualityGates);
-    var content = template.Render(new TemplateContext(model, options));
+    var content = template.Render(new TemplateContext(
+      new { QualityGates = qualityGates },
+      options
+    ));
 
+    // Write to file
     var output = $"Modules-Table.md";
     File.WriteAllText(output, content);
   }
 
-  private QualityGatesTableModel CreateQualityGatesTableModel(
-    string title,
-    List<QualityGate> qualityGates
+  private (string projectId, string badgeToken) GetBadgeToken(
+    ICollection<Category> categories,
+    CategoryType categoryType
   )
   {
-    return new QualityGatesTableModel
+    string projectId = string.Empty;
+    string badgeToken = string.Empty;
+
+    if (categories.Any(category => category.Type == categoryType))
     {
-      Title = title,
-      Tags = qualityGates.OrderBy(_ => _.Tag)
-        .GroupBy(_ => _.Tag)
-        .Select(_ => new Tag
-        {
-          Name = _.Key,
-          Entries = _.OrderBy(x => x.ProjectName).ToList()
-        })
-        .ToList()
-    };
+      projectId = categories.First(category => category.Type == categoryType).ProjectId;
+      badgeToken = _client.GetProjectBadgeToken(projectId)
+      .GetAwaiter()
+      .GetResult();
+    }
+
+    return (projectId, badgeToken);
   }
 }
 
-public record QualityGatesTableModel
-{
-  public string Title { get; set; }
-  public List<Tag> Tags { get; set; } = new();
-}
-
-public record Tag
-{
-  public string Name { get; set; } = string.Empty;
-  public List<QualityGate> Entries { get; set; } = new();
-}
-
 public record QualityGate(
-  string Tag,
   string ProjectId,
   string ProjectName,
   string ProjectDescription,
+  string Link,
   string SonarQubeDomain,
-  string BadgeToken
+  string BadgeTokenFE,
+  string ProjectIdFE,
+  string BadgeTokenBE,
+  string ProjectIdBE
 );

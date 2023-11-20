@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace tomware.MetrikR.Extensions;
 
@@ -8,7 +9,8 @@ public static class JsonExtensions
   {
     PropertyNameCaseInsensitive = true,
     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-    WriteIndented = true
+    WriteIndented = true,
+    Converters = { new JsonStringEnumConverter() }
   };
 
   public static T FromJson<T>(this string json) =>
