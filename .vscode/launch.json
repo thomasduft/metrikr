@@ -9,7 +9,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-metrikr",
-      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net7.0/tomware.MetrikR.dll",
+      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net8.0/tomware.MetrikR.dll",
       "args": [
         "new-run",
         "pi-2201-sample",
@@ -25,7 +25,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-metrikr",
-      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net7.0/tomware.MetrikR.dll",
+      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net8.0/tomware.MetrikR.dll",
       "args": [
         "visualize",
         "config.json"
@@ -39,7 +39,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-metrikr",
-      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net7.0/tomware.MetrikR.dll",
+      "program": "${workspaceFolder}/src/metrikr/bin/Debug/net8.0/tomware.MetrikR.dll",
       "args": [
         "module-list",
         "config.json",
