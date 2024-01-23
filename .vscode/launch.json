@@ -12,9 +12,9 @@
       "program": "${workspaceFolder}/src/metrikr/bin/Debug/net8.0/tomware.MetrikR.dll",
       "args": [
         "new-run",
-        "pi-2201-sample",
+        "pi-2401-sample",
         "config.json",
-        "5f3eb2853a960a7ebc2fe4887301d318f850eacb"
+        "3539fc9cb337aa0d87c04bf340962a381ff55c52"
       ],
       "cwd": "${workspaceFolder}/src/metrikr",
       "console": "internalConsole",

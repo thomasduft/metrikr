@@ -38,5 +38,7 @@ public class MetrikRConfiguration
   /// <typeparam name="string"></typeparam>
   public List<Metric> Metrics { get; set; } = new List<Metric>();
 
+  public string CategoryTypeFilter { get; set; } = string.Empty;
+
   public string Title { get; set; } = "No Title";
 }

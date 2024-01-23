@@ -26,8 +26,18 @@ public class CreateRunWorkflow
 
   internal void Execute()
   {
-    var projectIds = _config.Projects.Select(_ => _.Id).Distinct();
-    var metricIds = _config.Metrics.Select(_ => _.Id).Distinct();
+    var categoryFilter = _config.CategoryTypeFilter;
+
+    var projectIds = !string.IsNullOrWhiteSpace(_config.CategoryTypeFilter)
+      ? _config.Projects
+          .SelectMany(project => project.Categories
+            .Where(category => category.Type.ToString() == _config.CategoryTypeFilter)
+            .Select(category => category.ProjectId)).Distinct()
+      : _config.Projects
+          .SelectMany(project => project.Categories
+            .Select(category => category.ProjectId)).Distinct();
+
+    var metricIds = _config.Metrics.Select(metric => metric.Id).Distinct();
 
     var projectInfo = _client.GetProjects().GetAwaiter().GetResult();
     var metricInfo = _client.GetMetrics().GetAwaiter().GetResult();
@@ -38,7 +48,6 @@ public class CreateRunWorkflow
     var metricIdsForProject = string.Join(',', metrics.Select(_ => _.Key));
 
     Run run = CreateRun(projects, metricIdsForProject);
-
     var runAsJson = run.ToJson();
     var path = $"{_config.RunsDirectory}/{run.Name.Replace(" ", "-")}.json";
     File.WriteAllText(path, runAsJson);
