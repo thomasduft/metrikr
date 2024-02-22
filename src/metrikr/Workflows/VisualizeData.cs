@@ -39,9 +39,11 @@ public class VisualizeDataWorkflow
       runs.Add(File.ReadAllText(file).FromJson<Run>());
     }
 
-    // 3. locate the strategy and pass in the runs
+    // Filter to respective Projects
+    var projects = ProjectInfo.FilterForProjects(_config.Projects, _config.CategoryTypeFilter);
+
     strategies[strategy].Visualize(new(
-      _config.Projects,
+      projects,
       _config.Metrics,
       runs,
       _config.VisualizationsDirectory

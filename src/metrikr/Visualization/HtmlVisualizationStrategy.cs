@@ -53,10 +53,10 @@ public class HtmlVisualizationStrategy : IVisualizationStrategy
       var datasetsBuilder = new StringBuilder();
       foreach (var project in param.Projects)
       {
-        string data = GetProjectData(metric.Id, project.Id, param.Runs);
+        string data = GetProjectData(metric.Id, project.ProjectId, param.Runs);
         datasetsBuilder.AppendLine("{");
         datasetsBuilder.AppendLine($"  data: [{data}],");
-        datasetsBuilder.AppendLine($"  label: '{project.Name}',");
+        datasetsBuilder.AppendLine($"  label: '{project.ProjectName}',");
         datasetsBuilder.AppendLine($"  fill: false");
         datasetsBuilder.AppendLine("},");
       }
@@ -109,7 +109,7 @@ public class HtmlVisualizationStrategy : IVisualizationStrategy
   {
     var results = new List<string>();
 
-    foreach (var run in runs.OrderBy(_ => _.Date))
+    foreach (var run in runs.OrderBy(run => run.Date))
     {
       var projects = run.Participants.Where(p => p.ProjectId == projectId);
       if (projects.Any())

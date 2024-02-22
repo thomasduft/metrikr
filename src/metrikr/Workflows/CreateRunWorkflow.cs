@@ -27,15 +27,8 @@ public class CreateRunWorkflow
   internal void Execute()
   {
     var categoryFilter = _config.CategoryTypeFilter;
-
-    var projectIds = !string.IsNullOrWhiteSpace(_config.CategoryTypeFilter)
-      ? _config.Projects
-          .SelectMany(project => project.Categories
-            .Where(category => category.Type.ToString() == _config.CategoryTypeFilter)
-            .Select(category => category.ProjectId)).Distinct()
-      : _config.Projects
-          .SelectMany(project => project.Categories
-            .Select(category => category.ProjectId)).Distinct();
+    var projectIds = ProjectInfo.FilterForProjects(_config.Projects, categoryFilter)
+      .Select(project => project.ProjectId);
 
     var metricIds = _config.Metrics.Select(metric => metric.Id).Distinct();
 

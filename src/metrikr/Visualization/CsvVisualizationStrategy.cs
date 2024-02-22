@@ -21,7 +21,7 @@ public class CsvVisualizationStrategy : IVisualizationStrategy
     {
       foreach (var participant in run.Participants)
       {
-        var projectName = param.Projects.FirstOrDefault(_ => _.Id == participant.ProjectId)?.Name;
+        var projectName = param.Projects.FirstOrDefault(project => project.ProjectId == participant.ProjectId)?.ProjectName;
         foreach (var result in participant.Results)
         {
           var metricName = param.Metrics.FirstOrDefault(_ => _.Id == result.MetricId)?.Name;

@@ -33,10 +33,10 @@ public class MarkdownVisualizationStrategy : IVisualizationStrategy
       var datasetsBuilder = new StringBuilder();
       foreach (var project in param.Projects)
       {
-        string data = GetProjectData(metric.Id, project.Id, param.Runs);
+        string data = GetProjectData(metric.Id, project.ProjectId, param.Runs);
         datasetsBuilder.AppendLine("{");
         datasetsBuilder.AppendLine($"  data: [{data}],");
-        datasetsBuilder.AppendLine($"  label: '{project.Name}',");
+        datasetsBuilder.AppendLine($"  label: '{project.ProjectName}',");
         datasetsBuilder.AppendLine($"  fill: false");
         datasetsBuilder.AppendLine("},");
       }

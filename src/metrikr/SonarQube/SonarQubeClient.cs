@@ -19,24 +19,24 @@ public class SonarQubeClient
     _client = CreateClient(apiKey);
   }
 
-  public async Task<ProjectInfo> GetProjects()
+  public async Task<SonarQubeProjectInfo> GetProjects()
   {
     // PageSize set to max = 500 items
     var response = await _client.GetAsync(CreateUri("api/components/search?ps=500&qualifiers=TRK"));
     response.EnsureSuccessStatusCode();
 
     var json = await response.Content.ReadAsStringAsync();
-    return json.FromJson<ProjectInfo>();
+    return json.FromJson<SonarQubeProjectInfo>();
   }
 
-  public async Task<ProjectInfo> CreateProject()
+  public async Task<SonarQubeProjectInfo> CreateProject()
   {
     // PageSize set to max = 500 items
     var response = await _client.PostAsync(CreateUri("api/projects/create"), null);
     response.EnsureSuccessStatusCode();
 
     var json = await response.Content.ReadAsStringAsync();
-    return json.FromJson<ProjectInfo>();
+    return json.FromJson<SonarQubeProjectInfo>();
   }
 
   public async Task<MetricInfo> GetMetrics()
