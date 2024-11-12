@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,20 +29,27 @@ public class ModulesTableCreator
     {
       ConsoleHelper.WriteLine($"Gathering information for project {project.Id}");
 
-      var (projectIdFE, badgeTokenFE) = GetBadgeToken(project.Categories, CategoryType.frontend);
-      var (projectIdBE, badgeTokenBE) = GetBadgeToken(project.Categories, CategoryType.backend);
+      try
+      {
+        var (projectIdFE, badgeTokenFE) = GetBadgeToken(project.Categories, CategoryType.frontend);
+        var (projectIdBE, badgeTokenBE) = GetBadgeToken(project.Categories, CategoryType.backend);
 
-      qualityGates.Add(new QualityGate(
-        project.Id,
-        project.Name,
-        project.Description,
-        project.Link,
-        _config.SonarQubeDomain,
-        badgeTokenFE,
-        projectIdFE,
-        badgeTokenBE,
-        projectIdBE
-      ));
+        qualityGates.Add(new QualityGate(
+          project.Id,
+          project.Name,
+          project.Description,
+          project.Link,
+          _config.SonarQubeDomain,
+          badgeTokenFE,
+          projectIdFE,
+          badgeTokenBE,
+          projectIdBE
+        ));
+      }
+      catch (Exception ex)
+      {
+        ConsoleHelper.WriteLineError($"Error while fetching project details for '{project.Id}': {ex.Message}");
+      }
     }
 
     // Create Quality Gate markdown table
