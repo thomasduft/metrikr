@@ -7,7 +7,7 @@ namespace tomware.MetrikR.Configuration;
 public class MetrikRConfiguration
 {
   /// <summary>
-  /// Domain where SonarQube is hosted (i.e. https://sonar.alm.buhlergroup.com)
+  /// Domain where SonarQube is hosted (i.e. https://sonar-qube.com)
   /// </summary>
   public string SonarQubeDomain { get; set; }
 

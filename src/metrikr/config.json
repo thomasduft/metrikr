@@ -1,5 +1,5 @@
 {
-  "SonarQubeDomain": "https://sonar.alm.buhlergroup.com",
+  "SonarQubeDomain": "https://sonar-qube.com",
   "RunsDirectory": "../../samples/runs",
   "VisualizationsDirectory": "../../samples/visualizations",
   "VisualizationStrategy": "all",
@@ -13,11 +13,11 @@
       "Categories": [
         {
           "Type": "backend",
-          "ProjectId": "joint-forces-audit"
+          "ProjectId": "audit"
         },
         {
           "Type": "frontend",
-          "ProjectId": "joint-forces-audit-fe"
+          "ProjectId": "audit-fe"
         }
       ]
     }

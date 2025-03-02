@@ -1,41 +1,22 @@
-TODO:
-
-- [ ] create xlsx visualization strategy
-
-
-- [ ] also consider to create tooling that:
-  - lists classes with too many dependencies (i.e. only 5 deps allowed)
-    - call that: god_object - metric
-  - create tooling that generates dep graph based on projects
-
-
-- [ ] sln creator
-  1. dotnet new sln -n modules
-  2. dotnet sln modules.sln add \modules\audit\src\Audit\Audit.csproj
-
-  API
-    dotnet run create-sln "modules" -i "C:\\work\\joint-forces\\joint-forces\\backend\\modules" -o "C:\\work\\joint-forces\\joint-forces\\backend"
-
-----------------------------------------------------------------------------------------------------
 APIs:
 
 - SonarQube
-  - https://sonar.alm.buhlergroup.com/web_api/api/measures
+  - https://sonar-qube.com/web_api/api/measures
   - https://docs.sonarqube.org/latest/user-guide/metric-definitions/
 
-  1. https://sonar.alm.buhlergroup.com/api/components/search?qualifiers=TRK
+  1. https://sonar-qube.com/api/components/search?qualifiers=TRK
     - searches for projects
 
-  2. https://sonar.alm.buhlergroup.com/api/components/show?component=joint-forces-trending
+  2. https://sonar-qube.com/api/components/show?component=trending
     - searches for ??? based on a project
 
   3. Metrics
-    - https://sonar.alm.buhlergroup.com/api/metrics/search
+    - https://sonar-qube.com/api/metrics/search
       - lists all metrics
 
   4. Measures
-    - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-trending&metricKeys=ncloc,cognitive_complexity,coverage,complexity,violations
-    - https://sonar.alm.buhlergroup.com/api/measures/component?component=joint-forces-variables&metricKeys=ncloc,cognitive_complexity,coverage,complexity,violations
+    - https://sonar-qube.com/api/measures/component?component=trending&metricKeys=ncloc,cognitive_complexity,coverage,complexity,violations
+    - https://sonar-qube.com/api/measures/component?component=variables&metricKeys=ncloc,cognitive_complexity,coverage,complexity,violations
       - lists measures based on a project and wanted metrics (metricKeys)
 
 ----------------------------------------------------------------------------------------------------
@@ -45,17 +26,3 @@ Links:
   - https://www.chartjs.org/docs/latest/
   - https://github.com/chartjs/Chart.js
   - https://github.com/kurkle/chartjs-plugin-autocolors
-
-----------------------------------------------------------------------------------------------------
-dotnet tool:
-
-- dotnet tool list --global
-
-- locally installing metrikr on a linux environment
-- ./install.sh 1.1.0 r p
-
-----------------------------------------------------------------------------------------------------
-Tips:
-- dotnet tool install --global dotnet-outdated-tool
-- dotnet tool install -g dotnet-format
-  export PATH="$PATH:/home/vscode/.dotnet/tools"

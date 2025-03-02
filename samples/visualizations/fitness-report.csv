@@ -1,4 +1,4 @@
 Run;ProjectId;ProjectName;MetricId;MetricName;Value
-pi-2201-sample;joint-forces-trending;Trending module;cognitive_complexity;Cognitive Complexity;76
-pi-2201-sample;joint-forces-trending;Trending module;coverage;Overall Coverage;71.7
-pi-2201-sample;joint-forces-trending;Trending module;complexity;Cyclomatic Complexity;511
+pi-2201-sample;trending;Trending module;cognitive_complexity;Cognitive Complexity;76
+pi-2201-sample;trending;Trending module;coverage;Overall Coverage;71.7
+pi-2201-sample;trending;Trending module;complexity;Cyclomatic Complexity;511

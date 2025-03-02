@@ -1,4 +1,4 @@
-# JointForces fitness report
+# Fitness report
 
 <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min.js"></script>
 

@@ -47,7 +47,7 @@ Use "metrikr [command] --help" for more information about a command.
 ```json
 {
   // domain where your sonarqube is running
-  "SonarQubeDomain": "https://sonar.alm.buhlergroup.com",
+  "SonarQubeDomain": "https://sonar-qube.com",
   // directory where runs are stored and versioned
   "RunsDirectory": "../../samples/runs",
   // directory where visualizations are stored and versioned
@@ -57,15 +57,15 @@ Use "metrikr [command] --help" for more information about a command.
   // sonarqube projects to scan for metrics with some human readable meta-data
   "Projects": [
     {
-      "Id": "opportunity-audit",
+      "Id": "audit",
       "Name": "Audit module"
     },
     {
-      "Id": "opportunity-message-history",
+      "Id": "message-history",
       "Name": "Message history module"
     },
     {
-      "Id": "joint-forces-trending",
+      "Id": "trending",
       "Name": "Trending module"
     }
   ],

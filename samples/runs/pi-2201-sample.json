@@ -3,7 +3,7 @@
   "date": "2022-11-18T00:00:00+00:00",
   "participants": [
     {
-      "projectId": "joint-forces-trending",
+      "projectId": "trending",
       "results": [
         {
           "metricId": "cognitive_complexity",
