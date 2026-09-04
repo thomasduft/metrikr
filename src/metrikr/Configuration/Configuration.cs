@@ -30,15 +30,13 @@ public class MetrikRConfiguration
   /// List of projects that should be looked up.
   /// </summary>
   /// <typeparam name="Project"></typeparam>
-  public List<Project> Projects { get; set; } = new List<Project>();
+  public List<Project> Projects { get; set; } = [];
 
   /// <summary>
   /// List of metrics that should be looked up.
   /// </summary>
   /// <typeparam name="string"></typeparam>
-  public List<Metric> Metrics { get; set; } = new List<Metric>();
+  public List<Metric> Metrics { get; set; } = [];
 
   public string CategoryTypeFilter { get; set; } = string.Empty;
-
-  public string Title { get; set; } = "No Title";
 }
