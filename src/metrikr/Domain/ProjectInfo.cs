@@ -13,10 +13,10 @@ public record ProjectInfo(string ProjectId, string ProjectName)
     return !string.IsNullOrWhiteSpace(categoryFilter)
       ? projects
           .SelectMany(project => project.Categories
-            .Where(category => category.Type.ToString() == categoryFilter)
-            .Select(category => new ProjectInfo(category.ProjectId, project.Name))).Distinct()
+            .Where(category => category.ToString() == categoryFilter)
+            .Select(category => new ProjectInfo(project.Id, project.Name))).Distinct()
       : projects
           .SelectMany(project => project.Categories
-            .Select(category => new ProjectInfo(category.ProjectId, project.Name))).Distinct();
+            .Select(category => new ProjectInfo(project.Id, project.Name))).Distinct();
   }
 }

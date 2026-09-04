@@ -31,8 +31,8 @@ public class ModulesTableCreator
 
       try
       {
-        var (projectIdFE, badgeTokenFE) = GetBadgeToken(project.Categories, CategoryType.frontend);
-        var (projectIdBE, badgeTokenBE) = GetBadgeToken(project.Categories, CategoryType.backend);
+        var (projectIdFE, badgeTokenFE) = GetBadgeToken(project.Id, project.Categories, CategoryType.frontend);
+        var (projectIdBE, badgeTokenBE) = GetBadgeToken(project.Id, project.Categories, CategoryType.backend);
 
         qualityGates.Add(new QualityGate(
           project.Id,
@@ -70,16 +70,14 @@ public class ModulesTableCreator
   }
 
   private (string projectId, string badgeToken) GetBadgeToken(
-    ICollection<Category> categories,
+    string projectId,
+    ICollection<CategoryType> categories,
     CategoryType categoryType
   )
   {
-    string projectId = string.Empty;
     string badgeToken = string.Empty;
-
-    if (categories.Any(category => category.Type == categoryType))
+    if (categories.Any(category => category == categoryType))
     {
-      projectId = categories.First(category => category.Type == categoryType).ProjectId;
       badgeToken = _client.GetProjectBadgeToken(projectId)
       .GetAwaiter()
       .GetResult();
