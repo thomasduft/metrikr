@@ -14,5 +14,6 @@ public class Project
 public enum CategoryType
 {
   backend,
-  frontend
+  frontend,
+  lib
 }
